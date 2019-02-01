@@ -1,0 +1,8 @@
+FontContent = 
+{
+	FontBuilder = 
+	{
+		string Name = "ka1",
+		uint64 ResourceId = 5640fb85e0dac43f,
+	},
+},

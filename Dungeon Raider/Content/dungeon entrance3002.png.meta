@@ -1,0 +1,20 @@
+ImageContent = 
+{
+	SpriteSourceBuilder = 
+	{
+		string Name = "dungeon entrance3002",
+		uint64 ResourceId = 56506f78bed27561,
+		uint64 AtlasId = 5274cf95e4a661fd,
+		uint FrameSizeX = 309,
+		uint FrameSizeY = 270,
+		uint FrameCount = 1,
+		float FrameDelay = 0.0833333358,
+		float OriginX = 154,
+		float OriginY = 135,
+		float PixelsPerUnit = 309,
+		bool Smoothing = false,
+		bool Looping = true,
+		Vec4 Slices = [0, 0, 0, 0],
+		SpriteFill Fill = Stretch,
+	},
+},

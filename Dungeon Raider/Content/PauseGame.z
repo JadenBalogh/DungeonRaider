@@ -1,0 +1,27 @@
+class PauseGame : ZilchComponent
+{
+    [Property] 
+    var MenuKey : Keys;
+    [Property]
+    var HudLevel: Level = null;
+    var HudSpace: Space = null;
+
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (Zero.Keyboard.KeyIsPressed(this.MenuKey))
+        {
+            if(this.HudSpace == null)
+            {
+                this.Space.TimeSpace.Paused = true;
+                this.Space.SoundSpace.Pause = true;
+                this.HudSpace = this.GameSession.CreateNamedSpace("HudSpace", Archetype.Find("Space"));
+                this.HudSpace.LoadLevel(this.HudLevel);
+            }
+        }
+    }
+}

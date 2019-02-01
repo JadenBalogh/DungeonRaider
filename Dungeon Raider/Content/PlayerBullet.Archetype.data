@@ -1,0 +1,113 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "PlayaBullet",
+	},
+	Archetyped = 
+	{
+		string Name = "5660885c2a308736:PlayerBullet",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	SpriteParticleSystem = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = false,
+		bool VisibilityEvents = true,
+		bool CastShadows = false,
+		SystemChildMode ChildMode = Independent,
+		SystemSpace SystemSpace = LocalSpace,
+		uint DrawOrder = 0,
+		float WarmUpTime = 10,
+		ParticleGeometry GeometryMode = Billboarded,
+		ParticleRenderMode RenderMode = Additive,
+		ParticleSortMode SortMode = Youngest,
+		ParticleAnimation ParticleAnimation = Single,
+		string Texture = "5310e87a46f2ca03:FireParticle03",
+		Vec4 Tint = [1, 1, 1, 1],
+		float VelocityScale = 1,
+		float LengthScale = 1,
+		float MaxParticleSize = 100,
+		Vec3 SystemSize = [4, 4, 4],
+	},
+	SphericalParticleEmitter = 
+	{
+		bool Active = true,
+		uint EmitCount = 0,
+		float EmitRate = 20,
+		float EmitVariance = 0,
+		float Size = 0.200000003,
+		float SizeVariance = 0,
+		float Lifetime = 0.600000024,
+		float LifetimeVariance = 0,
+		float Spin = 0,
+		float SpinVariance = 0,
+		bool RandomSpin = true,
+		float Fill = 1,
+		float EmitterVelocityPercent = 0,
+		Vec3 StartVelocity = [0, 0, 0],
+		Vec3 RandomVelocity = [1, 1, 1],
+		Vec3 TangentVelocity = [0, 0, 0],
+		Vec3 EmitterSize = [0, 0, 0],
+		bool FastMovingEmitter = false,
+	},
+	LinearParticleAnimator = 
+	{
+		Vec3 Force = [0, 0, 0],
+		Vec3 RandomForce = [0, 0, 0],
+		float Torque = 2,
+		float Growth = 1,
+		float Dampening = 10,
+		Vec3 Twist = [0, 0, 0],
+	},
+	ParticleColorAnimator = 
+	{
+		Vec4 Color0 = [1, 0.790000021, 0.160000026, 1],
+		Vec4 Color1 = [0.99000001, 0.635580122, 0.103950024, 1],
+		Vec4 Color2 = [0.935000002, 0.421217501, 0.20102495, 1],
+		Vec4 Color3 = [1, 0.500799894, 0.0400000215, 1],
+		Vec4 Color4 = [1, 0.962200165, 0.0550000072, 0],
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	SphereCollider = 
+	{
+		bool Ghost = true,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		float Radius = 0.300000012,
+	},
+	DieOffScreen = 
+	{
+	},
+	CollisionDamage = 
+	{
+		bool DamagePlayer = false,
+		bool DestroyOnCollide = true,
+	},
+	Range = 
+	{
+	},
+},

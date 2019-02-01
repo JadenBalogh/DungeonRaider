@@ -1,0 +1,24 @@
+class VariableStorage : ZilchComponent
+{
+    var IsGameInitializing : Boolean = true;
+    var IsAlive : Boolean = true;
+    var Class : Integer;
+    var PlayerPosition : Real3;
+    var Level : Integer = 1;
+    var XP : Real = 1;
+    var XPMax : Real = 1;
+    var CurrentHealth : Real = 1;
+    var MaxHealth : Real = 1;
+    var SurvivalTime : Real = 10;
+    var InitialTime : Real = 10;
+    var SprintTime : Real = 1;
+    var OriginalSprintTime : Real = 1;
+    var ShootDamage : Real = 1;
+    var ShootCooldown : Real = 1;
+    var MeleeDamage : Real = 1;
+    var ShootSpecialTime : Real = 1;
+    var ShootSpecialDamage : Real = 1;
+    var MeleeSpecialCool : Real = 1;
+    var MeleeSpecialDur : Real = 1;
+    var IsIconVisible : Boolean;
+}

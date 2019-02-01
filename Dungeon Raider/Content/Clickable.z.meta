@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Clickable",
+		uint64 ResourceId = 56b5c1e0470d9c1b,
+	},
+},

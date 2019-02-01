@@ -1,0 +1,228 @@
+class PlayerMovement : ZilchComponent
+{
+    [Property]
+    var Up : Keys;
+    [Property]
+    var Down : Keys;
+    [Property]
+    var Left : Keys;
+    [Property]
+    var Right : Keys;
+    [Property]
+    var Sprint : Keys;
+    [Property]
+    var SprintSpeed : Real = 2;
+    [Property]
+    var SprintCost : Real = 1;
+    [Property]
+    var SprintTime : Real = 5;
+    [Property]
+    var SprintWait : Real = 2;
+    var Speed : Real;
+    
+    [Property]
+    var SoundEffectWalk : SoundCue;
+    [Property]
+    var SoundEffectSprint : SoundCue;
+    var IsWalkPlaying : Boolean = false;
+    var IsSprintPlaying : Boolean = false;
+    var WalkInstance : SoundInstance;
+    var SprintInstance : SoundInstance;
+    
+    var OriginalSpeed : Real;
+    var OriginalSprintSpeed : Real;
+    var OriginalSprintTime : Real;
+    var OriginalSprintWait : Real;
+    
+    var TextBox : Cog = null;
+    var TextRatio : Real;
+    var MaxRatio : Real;
+    var Init : Boolean = true;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.TextBox = this.Space.FindObjectByName("SprintBar");
+        this.TextRatio = this.TextBox.Area.Size.X / this.SprintTime;
+        this.MaxRatio = this.TextBox.Area.Size.X;
+        
+        this.OriginalSprintSpeed = this.SprintSpeed;
+        this.OriginalSprintTime = this.SprintTime;
+        this.OriginalSprintWait = this.SprintWait;
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        
+        this.Owner.Transform.Translation = this.Space.LevelSettings.LevelReset.PlayerPosition;
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.Init)
+        {
+            this.OriginalSpeed = this.Speed;
+            this.Init = false;
+        }
+        
+        this.Owner.RigidBody.Velocity = Real3(0.0, 0.0, 0.0);
+        
+        var movement = Real3(0.0, 0.0, 0.0);
+        
+        if (Zero.Keyboard.KeyIsDown(this.Sprint) && this.SprintTime > 0)
+        {
+            this.Speed = this.SprintSpeed;
+            this.LevelSettings.Survival.SurvivalTime -= this.SprintCost * event.Dt;
+            this.SprintTime -= event.Dt;
+        }
+        else if (Zero.Keyboard.KeyIsUp(this.Sprint) && this.SprintTime > 0 && this.SprintTime < this.OriginalSprintTime)
+        {
+            this.Speed = this.OriginalSpeed;
+            this.SprintTime += event.Dt / 4;
+        }
+        else if (this.SprintTime <= 0 && this.SprintWait > 0)
+        {
+            this.Speed = this.OriginalSpeed;
+            this.SprintWait -= event.Dt;
+        }
+        else if (this.SprintWait <= 0 && this.SprintWait <= 0)
+        {
+            this.Speed = this.OriginalSpeed;
+            this.SprintWait = this.OriginalSprintWait;
+            this.SprintTime += event.Dt / 4;
+        }
+        
+        this.TextBox.Area.Size = Real2(this.TextRatio * this.SprintTime, this.TextBox.Area.Size.Y);
+        
+        
+        var soundEffect : SoundCue = null;
+        
+        if ((Zero.Keyboard.KeyIsDown(this.Up)
+        || Zero.Keyboard.KeyIsDown(this.Down)
+        || Zero.Keyboard.KeyIsDown(this.Right)
+        || Zero.Keyboard.KeyIsDown(this.Left))
+        && Zero.Keyboard.KeyIsDown(this.Sprint)
+        && this.SprintTime > 0)
+        {
+            if (this.IsSprintPlaying == false)
+            {
+                if (this.WalkInstance != null)
+                {
+                    this.WalkInstance.Pause();
+                    this.IsWalkPlaying = false;
+                }
+                soundEffect = this.SoundEffectSprint;
+                if (this.SprintInstance != null)
+                {
+                    this.SprintInstance.Continue();
+                }
+                else
+                {
+                    this.SprintInstance = this.Space.SoundSpace.PlayCue(soundEffect);
+                }
+                this.IsSprintPlaying = true;
+            }
+        }
+        else if ((Zero.Keyboard.KeyIsDown(this.Up)
+        || Zero.Keyboard.KeyIsDown(this.Down)
+        || Zero.Keyboard.KeyIsDown(this.Right)
+        || Zero.Keyboard.KeyIsDown(this.Left))
+        && Zero.Keyboard.KeyIsUp(this.Sprint))
+        {
+            if (this.IsWalkPlaying == false)
+            {
+                if (this.SprintInstance != null)
+                {
+                    this.SprintInstance.Pause();
+                    this.IsSprintPlaying = false;
+                }
+                soundEffect = this.SoundEffectWalk;
+                if (this.WalkInstance != null)
+                {
+                    this.WalkInstance.Continue();
+                }
+                else
+                {
+                    this.WalkInstance = this.Space.SoundSpace.PlayCue(soundEffect);
+                }
+                this.IsWalkPlaying = true;
+            }
+        }
+        else if (Zero.Keyboard.KeyIsUp(this.Up)
+        && Zero.Keyboard.KeyIsUp(this.Down)
+        && Zero.Keyboard.KeyIsUp(this.Right)
+        && Zero.Keyboard.KeyIsUp(this.Left))
+        {
+            this.IsSprintPlaying = false;
+            this.IsWalkPlaying = false;
+            if (this.WalkInstance != null)
+            {
+                this.WalkInstance.Pause();
+            }
+            if (this.SprintInstance != null)
+            {
+                this.SprintInstance.Pause();
+            }
+        }
+        
+        var hypRatio = 1.4142135623730950488016887242097;
+        // For a triangle with two equal length sides:
+        // The hypotenuse divided by one side is equal to 1.4142135623730950488016887242097
+        // X^2 + Y^2 = Ans^2,   X = Y,   sqrt(2(X^2)) = Ans,   Ans = X(1.4142135623730950488016887242097)
+        // Therefore, the hypotenuse is equal to 1.4142135623730950488016887242097 times one of the sides
+        // HypRatio = 1.4142135623730950488016887242097
+        // X = Ans / HypRatio
+        // Therefore, one side is equal to the hypotenuse divided by 1.4142135623730950488016887242097
+        // Additionally, HypRatio = 2cos(45) or HypRatio = 2sin(45)
+        
+        if (Zero.Keyboard.KeyIsDown(this.Up) && Zero.Keyboard.KeyIsDown(this.Right))
+        {
+            movement.Y += this.Speed / hypRatio;
+            movement.X += this.Speed / hypRatio;
+        }
+        else if (Zero.Keyboard.KeyIsDown(this.Up) && Zero.Keyboard.KeyIsDown(this.Left))
+        {
+            movement.Y += this.Speed / hypRatio;
+            movement.X -= this.Speed / hypRatio;
+        }
+        else if (Zero.Keyboard.KeyIsDown(this.Down) && Zero.Keyboard.KeyIsDown(this.Right))
+        {
+            movement.Y -= this.Speed / hypRatio;
+            movement.X += this.Speed / hypRatio;
+        }
+        else if (Zero.Keyboard.KeyIsDown(this.Down) && Zero.Keyboard.KeyIsDown(this.Left))
+        {
+            movement.Y -= this.Speed / hypRatio;
+            movement.X -= this.Speed / hypRatio;
+        }
+        
+        else if (Zero.Keyboard.KeyIsDown(this.Up))
+        {
+            movement.Y += this.Speed;
+        }
+        else if (Zero.Keyboard.KeyIsDown(this.Down))
+        {
+            movement.Y -= this.Speed;
+        }
+        else if (Zero.Keyboard.KeyIsDown(this.Left))
+        {
+            movement.X -= this.Speed;
+        }
+        else if (Zero.Keyboard.KeyIsDown(this.Right))
+        {
+            movement.X += this.Speed;
+        }
+        
+        this.Owner.Transform.Translation += movement * event.Dt;
+    }
+    
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        //when hitting a checkpoint, save this position in the level
+        if(event.OtherObject.Checkpoint != null)
+        {
+            var checkpointPosition = event.OtherObject.Transform.Translation;
+            
+            this.Space.LevelSettings.LevelReset.PlayerPosition = checkpointPosition;
+        }
+    }
+}

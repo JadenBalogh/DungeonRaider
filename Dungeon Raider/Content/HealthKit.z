@@ -1,0 +1,57 @@
+class HealthKit : ZilchComponent
+{
+    [Property]
+    var BenefitPercent : Real = 0.5;
+    [Property]
+    var RespawnInterval : Real = 1.0;
+    [Property]
+    var SoundEffect : SoundCue;
+    var TimeSinceLast : Real;
+    var Active : Boolean = true;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.TimeSinceLast > 0.0)
+        {
+            this.TimeSinceLast -= event.Dt;
+        }
+        
+        if (this.TimeSinceLast <= 0)
+        {
+            this.Owner.Sprite.Visible = true;
+            this.Active = true;
+        }
+        
+        if (this.Owner.Sprite.Visible == false)
+        {
+            this.Active = false;
+        }
+    }
+    
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        var other = event.OtherObject;
+        
+        if (other.PlayerHealth != null && this.Active == true && other.PlayerHealth.CurrentHealth < other.PlayerHealth.MaxHealth)
+        {
+            if (other.PlayerHealth.MaxHealth > other.PlayerHealth.CurrentHealth + (other.PlayerHealth.MaxHealth * this.BenefitPercent))
+            {
+                other.PlayerHealth.CurrentHealth += (other.PlayerHealth.MaxHealth * this.BenefitPercent);
+            }
+            else
+            {
+                other.PlayerHealth.CurrentHealth = other.PlayerHealth.MaxHealth;
+            }
+            this.Space.SoundSpace.PlayCue(this.SoundEffect);
+            this.Owner.Sprite.Visible = false;
+            this.TimeSinceLast = this.RespawnInterval;
+        }
+    }
+}

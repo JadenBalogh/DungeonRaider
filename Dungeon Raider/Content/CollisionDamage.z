@@ -1,0 +1,44 @@
+class CollisionDamage : ZilchComponent
+{
+    [Property]
+    var DamagePlayer : Boolean = true;
+    [Property]
+    var DestroyOnCollide : Boolean = true;
+    var Player : Cog = null;
+    var Damage : Real = 1.0;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Player = this.Space.FindObjectByName("Player");
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+    
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        var other = event.OtherObject;
+        
+        if (other.Health != null)
+        {
+            other.Health.CurrentHealth -= this.Damage;
+            if (this.DestroyOnCollide)
+            {
+                this.Owner.Destroy();
+            }
+        }
+        if (other.PlayerHealth != null && this.DamagePlayer == true)
+        {
+            other.PlayerHealth.CurrentHealth -= this.Damage * other.PlayerHealth.Shield;
+            if (this.DestroyOnCollide)
+            {
+                this.Owner.Destroy();
+            }
+        }
+    }
+}

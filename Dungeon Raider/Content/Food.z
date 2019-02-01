@@ -1,0 +1,68 @@
+class Food : ZilchComponent
+{
+    [Property]
+    var BenefitPercent : Real = 0.5;
+    [Property]
+    var IsRespawning : Boolean = true;
+    [Property]
+    var RespawnInterval : Real = 1.0;
+    [Property]
+    var SoundEffect : SoundCue;
+    var TimeSinceLast : Real;
+    var Active : Boolean = true;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.TimeSinceLast > 0.0)
+        {
+            this.TimeSinceLast -= event.Dt;
+        }
+        
+        if (this.TimeSinceLast <= 0)
+        {
+            this.Owner.Sprite.Visible = true;
+            this.Active = true;
+        }
+        
+        if (this.Owner.Sprite.Visible == false)
+        {
+            this.Active = false;
+        }
+    }
+    
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        var other = event.OtherObject;
+        
+        if (other.PlayerHealth != null && this.Active == true && this.LevelSettings.Survival.SurvivalTime < this.LevelSettings.Survival.InitialTime)
+        {
+            if (this.LevelSettings.Survival.InitialTime > this.LevelSettings.Survival.SurvivalTime + (this.LevelSettings.Survival.InitialTime * this.BenefitPercent))
+            {
+                this.LevelSettings.Survival.SurvivalTime += (this.LevelSettings.Survival.InitialTime * this.BenefitPercent);
+            }
+            else
+            {
+                this.LevelSettings.Survival.SurvivalTime = this.LevelSettings.Survival.InitialTime;
+            }
+            
+            this.Space.SoundSpace.PlayCue(this.SoundEffect);
+            
+            if (this.IsRespawning)
+            {
+                this.Owner.Sprite.Visible = false;
+                this.TimeSinceLast = this.RespawnInterval;
+            }
+            else
+            {
+                this.Owner.Destroy();
+            }
+        }
+    }
+}

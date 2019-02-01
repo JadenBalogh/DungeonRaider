@@ -1,0 +1,52 @@
+class PlayerHealth : ZilchComponent
+{
+    var MaxHealth : Real = 1;
+    var CurrentHealth : Real;
+    var Shield : Real = 1;
+    
+    var TextBox : Cog = null;
+    var TextRatio : Real;
+    var MaxRatio : Real;
+    var HealthText : Cog = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.HealthText = this.Space.FindObjectByName("HealthText");
+        this.TextBox = this.Space.FindObjectByName("HealthBar");
+        this.TextRatio = this.TextBox.Area.Size.X / this.MaxHealth;
+        this.MaxRatio = this.TextBox.Area.Size.X;
+        
+        this.CurrentHealth = this.MaxHealth;
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.TextBox.Area.Size = Real2(this.TextRatio * this.CurrentHealth, this.TextBox.Area.Size.Y);
+        if (this.CurrentHealth <= 0)
+        {
+            if (this.GameSession.VariableStorage.IsGameInitializing == false)
+            {
+                if (this.Owner.PlayerMovement.WalkInstance != null)
+                {
+                    this.Owner.PlayerMovement.WalkInstance.Stop();
+                }
+                if (this.Owner.PlayerMovement.SprintInstance != null)
+                {
+                    this.Owner.PlayerMovement.SprintInstance.Stop();
+                }
+                this.Space.LevelSettings.LevelReset.Restart();
+            }
+        }
+        if (this.CurrentHealth > 1)
+        {
+            this.HealthText.SpriteText.Text = "`Math.Round(this.CurrentHealth, 0)`";
+        }
+        else
+        {
+            this.HealthText.SpriteText.Text = "1";
+        }
+        
+    }
+}

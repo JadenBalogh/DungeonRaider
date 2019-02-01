@@ -1,0 +1,45 @@
+class ChangeLevel : ZilchComponent
+{
+    [Property]
+    var Level : Level = null;
+    [Property]
+    var MinimumLevel : Integer = 1;
+    [Property]
+    var NextPosition : Real3;
+    var Player : Cog = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Player = this.Space.FindObjectByName("Player");
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+    
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        var other = event.OtherObject;
+        
+        if (other.Name == "Player")
+        {
+            if (this.Player.PlayerMovement.WalkInstance != null)
+            {
+                this.Player.PlayerMovement.WalkInstance.Stop();
+            }
+            if (this.Player.PlayerMovement.SprintInstance != null)
+            {
+                this.Player.PlayerMovement.SprintInstance.Stop();
+            }
+            if (this.LevelSettings.Experience.Level >= this.MinimumLevel)
+            {
+                this.GameSession.VariableStorage.PlayerPosition = this.NextPosition;
+                this.Space.LoadLevel(this.Level);
+            }
+        }
+    }
+}

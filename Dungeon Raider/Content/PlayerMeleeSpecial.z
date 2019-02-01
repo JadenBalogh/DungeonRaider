@@ -1,0 +1,73 @@
+class PlayerMeleeSpecial : ZilchComponent
+{
+    [Property]
+    var ShieldKey : MouseButtons;
+    [Property] 
+    var Duration : Real;
+    [Property] 
+    var Cooldown : Real;
+    [Property]
+    var SoundEffect : SoundCue;
+    [Property]
+    var ShieldEffect : Archetype;
+    
+    var ShieldUp : Boolean = false;
+    var CoolTime : Real = 0.0;
+    var DurTime : Real = 0.0;
+    var Effect : Cog = null;
+    var Icon : Cog = null;
+    var IsIconVisible : Boolean;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Icon = this.Space.FindObjectByName("KnightSpecialIcon");
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.IsIconVisible)
+        {
+            this.Icon.Sprite.Visible = true;
+        }
+        else
+        {
+            this.Icon.Sprite.Visible = false;
+        }
+        
+        if (this.CoolTime > 0.0)
+        {
+            this.CoolTime -= event.Dt;
+        }
+        
+        if (this.CoolTime <= 0)
+        {
+            this.IsIconVisible = true;
+            if (Zero.Mouse.IsButtonDown(this.ShieldKey))
+            {
+                this.IsIconVisible = false;
+                this.Effect = this.Space.CreateAtPosition(this.ShieldEffect, this.Owner.Transform.Translation);
+                this.Space.SoundSpace.PlayCue(this.SoundEffect);
+                this.ShieldUp = true;
+                this.CoolTime = this.Cooldown;
+            }
+        }
+        
+        if (this.ShieldUp)
+        {
+            if (this.DurTime < this.Duration)
+            {
+                this.Effect.Transform.Translation = this.Owner.Transform.Translation;
+                this.Owner.PlayerHealth.Shield = 0.0;
+                this.DurTime += event.Dt;
+            }
+            else
+            {
+                this.Owner.PlayerHealth.Shield = 1.0;
+                this.Effect.Destroy();
+                this.ShieldUp = false;
+                this.DurTime = 0;
+            }
+        }
+    }
+}

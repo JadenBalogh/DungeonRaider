@@ -1,0 +1,236 @@
+class LevelReset : ZilchComponent
+{
+    [Property]
+    var PlayerPosition : Real3 = Real3();
+    
+    var Cursor : Cursor = Cursor.Cross;
+    var Player : Cog = null;
+    var Animator : Cog = null;
+    var Create : Boolean;
+    
+    
+    [Property]
+    var DeathLevel: Level = null;
+    var DeathSpace: Space = null;
+    [Property]
+    var RespawnPosition : Real3 = Real3();
+    
+    [Property]
+    var KnightAnimationRunUp : SpriteSource;
+    [Property]
+    var KnightAnimationRunDown : SpriteSource;
+    [Property]
+    var KnightAnimationRunSide : SpriteSource;
+    [Property]
+    var KnightAnimationAttackUp : SpriteSource;
+    [Property]
+    var KnightAnimationAttackDown : SpriteSource;
+    [Property]
+    var KnightAnimationAttackSide : SpriteSource;
+    [Property]
+    var KnightAnimationStandUp : SpriteSource;
+    [Property]
+    var KnightAnimationStandDown : SpriteSource;
+    [Property]
+    var KnightAnimationStandSide : SpriteSource;
+    [Property]
+    var KnightHealth : Real;
+    [Property]
+    var KnightMoveSpeed : Real;
+    
+    [Property]
+    var WizardAnimationRunUp : SpriteSource;
+    [Property]
+    var WizardAnimationRunDown : SpriteSource;
+    [Property]
+    var WizardAnimationRunSide : SpriteSource;
+    [Property]
+    var WizardAnimationAttackUp : SpriteSource;
+    [Property]
+    var WizardAnimationAttackDown : SpriteSource;
+    [Property]
+    var WizardAnimationAttackSide : SpriteSource;
+    [Property]
+    var WizardAnimationStandUp : SpriteSource;
+    [Property]
+    var WizardAnimationStandDown : SpriteSource;
+    [Property]
+    var WizardAnimationStandSide : SpriteSource;
+    [Property]
+    var WizardHealth : Real;
+    [Property]
+    var WizardMoveSpeed : Real;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Player = this.Space.FindObjectByName("Player");
+        this.Animator = this.Space.FindObjectByName("PlayerAnimator");
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        
+        this.Create = true;
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        Zero.Mouse.Cursor = this.Cursor;
+        
+        if (this.Create)
+        {
+            if (this.GameSession.VariableStorage.Class == 1)
+            {
+                this.CreateWizard();
+            }
+            else
+            {
+                this.CreateKnight();
+            }
+            this.Create = false;
+        }
+    }
+    
+    function Restart()
+    {
+        if(this.DeathSpace == null)
+        {
+            this.Space.TimeSpace.Paused = true;
+            this.Space.SoundSpace.Pause = true;
+            this.GameSession.VariableStorage.IsAlive = false;
+            
+            this.DeathSpace = this.GameSession.CreateNamedSpace("DeathSpace", Archetype.Find("Space"));
+            
+            this.DeathSpace.LoadLevel(this.DeathLevel);
+        }
+    }
+    
+    function SpawnPlayer()
+    {
+        if (this.GameSession.VariableStorage.IsGameInitializing)
+        {
+            Console.WriteLine("Init");
+            this.Player.PlayerHealth.CurrentHealth = this.Player.PlayerHealth.MaxHealth;
+            this.Player.PlayerHealth.TextRatio = this.Player.PlayerHealth.MaxRatio / this.Player.PlayerHealth.MaxHealth;
+            this.LevelSettings.Survival.SurvivalTime = this.LevelSettings.Survival.InitialTime;
+            this.LevelSettings.Survival.TextRatio = this.LevelSettings.Survival.MaxRatio / this.LevelSettings.Survival.InitialTime;
+            this.Player.PlayerMovement.SprintTime = this.Player.PlayerMovement.OriginalSprintTime;
+            this.Player.PlayerMovement.SprintWait = this.Player.PlayerMovement.OriginalSprintWait;
+            this.Player.PlayerMovement.SprintSpeed = this.Player.PlayerMovement.OriginalSprintSpeed;
+            this.Player.PlayerMovement.TextRatio = this.Player.PlayerMovement.MaxRatio / this.Player.PlayerMovement.OriginalSprintTime;
+            this.Player.Transform.Translation = this.PlayerPosition;
+            this.GameSession.VariableStorage.IsGameInitializing = false;
+            this.Player.Transform.Translation = this.PlayerPosition;
+        }
+        else if (this.GameSession.VariableStorage.IsAlive == false)
+        {
+            Console.WriteLine("Respawn");
+            this.GameSession.VariableStorage.IsAlive = true;
+            this.LevelSettings.Experience.Level = this.GameSession.VariableStorage.Level;
+            this.LevelSettings.Experience.XP = 0;
+            this.LevelSettings.Experience.XPMax = this.GameSession.VariableStorage.XPMax;
+            this.Player.PlayerHealth.CurrentHealth = this.GameSession.VariableStorage.MaxHealth;
+            this.Player.PlayerHealth.MaxHealth = this.GameSession.VariableStorage.MaxHealth;
+            this.LevelSettings.Survival.SurvivalTime = this.GameSession.VariableStorage.InitialTime;
+            this.LevelSettings.Survival.InitialTime = this.GameSession.VariableStorage.InitialTime;
+            this.Player.PlayerMovement.SprintTime = this.GameSession.VariableStorage.OriginalSprintTime;
+            this.Player.PlayerMovement.OriginalSprintTime = this.GameSession.VariableStorage.OriginalSprintTime;
+            this.Player.PlayerHealth.TextRatio = this.Player.PlayerHealth.MaxRatio / this.Player.PlayerHealth.MaxHealth;
+            this.LevelSettings.Survival.TextRatio = this.LevelSettings.Survival.MaxRatio / this.LevelSettings.Survival.InitialTime;
+            this.Player.PlayerMovement.TextRatio = this.Player.PlayerMovement.MaxRatio / this.Player.PlayerMovement.OriginalSprintTime;
+            this.LevelSettings.Experience.TextRatio = this.LevelSettings.Experience.MaxRatio / this.LevelSettings.Experience.XPMax;
+            if (this.Player.PlayerShoot != null)
+            {
+                this.Player.PlayerShoot.Damage = this.GameSession.VariableStorage.ShootDamage;
+                this.Player.PlayerShootSpecial.Damage = this.GameSession.VariableStorage.ShootSpecialDamage;
+                this.Player.PlayerShootSpecial.TimeSinceLast = this.GameSession.VariableStorage.ShootSpecialTime;
+            }
+            if (this.Player.PlayerMelee != null)
+            {
+                this.Player.PlayerMelee.Damage = this.GameSession.VariableStorage.MeleeDamage;
+                this.Player.PlayerMeleeSpecial.CoolTime = this.GameSession.VariableStorage.MeleeSpecialCool;
+                this.Player.PlayerMeleeSpecial.DurTime = this.GameSession.VariableStorage.MeleeSpecialDur;
+            }
+            this.Player.Transform.Translation = this.RespawnPosition;
+        }
+        else
+        {
+            Console.WriteLine("Saved");
+            this.LevelSettings.Experience.Level = this.GameSession.VariableStorage.Level;
+            this.LevelSettings.Experience.XP = this.GameSession.VariableStorage.XP;
+            this.LevelSettings.Experience.XPMax = this.GameSession.VariableStorage.XPMax;
+            this.Player.PlayerHealth.CurrentHealth = this.GameSession.VariableStorage.CurrentHealth;
+            this.Player.PlayerHealth.MaxHealth = this.GameSession.VariableStorage.MaxHealth;
+            this.LevelSettings.Survival.SurvivalTime = this.GameSession.VariableStorage.SurvivalTime;
+            this.LevelSettings.Survival.InitialTime = this.GameSession.VariableStorage.InitialTime;
+            this.Player.PlayerMovement.SprintTime = this.GameSession.VariableStorage.SprintTime;
+            this.Player.PlayerMovement.OriginalSprintTime = this.GameSession.VariableStorage.OriginalSprintTime;
+            this.Player.PlayerHealth.TextRatio = this.Player.PlayerHealth.MaxRatio / this.Player.PlayerHealth.MaxHealth;
+            this.LevelSettings.Survival.TextRatio = this.LevelSettings.Survival.MaxRatio / this.LevelSettings.Survival.InitialTime;
+            this.Player.PlayerMovement.TextRatio = this.Player.PlayerMovement.MaxRatio / this.Player.PlayerMovement.OriginalSprintTime;
+            this.LevelSettings.Experience.TextRatio = this.LevelSettings.Experience.MaxRatio / this.LevelSettings.Experience.XPMax;
+            if (this.Player.PlayerShoot != null)
+            {
+                this.Player.PlayerShoot.Damage = this.GameSession.VariableStorage.ShootDamage;
+                this.Player.PlayerShoot.Cooldown = this.GameSession.VariableStorage.ShootCooldown;
+                this.Player.PlayerShootSpecial.Damage = this.GameSession.VariableStorage.ShootSpecialDamage;
+                this.Player.PlayerShootSpecial.TimeSinceLast = this.GameSession.VariableStorage.ShootSpecialTime;
+                this.Player.PlayerShootSpecial.IsIconVisible = this.GameSession.VariableStorage.IsIconVisible;
+            }
+            if (this.Player.PlayerMelee != null)
+            {
+                this.Player.PlayerMelee.Damage = this.GameSession.VariableStorage.MeleeDamage;
+                this.Player.PlayerMeleeSpecial.CoolTime = this.GameSession.VariableStorage.MeleeSpecialCool;
+                this.Player.PlayerMeleeSpecial.DurTime = this.GameSession.VariableStorage.MeleeSpecialDur;
+                this.Player.PlayerMeleeSpecial.IsIconVisible = this.GameSession.VariableStorage.IsIconVisible;
+            }
+            this.Player.Transform.Translation = this.GameSession.VariableStorage.PlayerPosition;
+        }
+    }
+    
+    function CreateWizard()
+    {
+        this.Animator.PlayerAnimation.UpRunAnimation = this.WizardAnimationRunUp;
+        this.Animator.PlayerAnimation.DownRunAnimation = this.WizardAnimationRunDown;
+        this.Animator.PlayerAnimation.SideRunAnimation = this.WizardAnimationRunSide;
+        this.Animator.PlayerAnimation.UpAttackAnimation = this.WizardAnimationAttackUp;
+        this.Animator.PlayerAnimation.DownAttackAnimation = this.WizardAnimationAttackDown;
+        this.Animator.PlayerAnimation.SideAttackAnimation = this.WizardAnimationAttackSide;
+        this.Animator.PlayerAnimation.UpStandAnimation = this.WizardAnimationStandUp;
+        this.Animator.PlayerAnimation.DownStandAnimation = this.WizardAnimationStandDown;
+        this.Animator.PlayerAnimation.SideStandAnimation = this.WizardAnimationStandSide;
+        this.Player.PlayerHealth.MaxHealth = this.WizardHealth;
+        this.Player.PlayerMovement.Speed = this.WizardMoveSpeed;
+        this.Player.RemoveComponentByName("PlayerMelee");
+        this.Player.RemoveComponentByName("PlayerMeleeSpecial");
+        var specialIcon = this.Space.FindObjectByName("KnightSpecialIcon");
+        if (specialIcon != null)
+        {
+            specialIcon.Destroy();
+        }
+        this.Animator.Sprite.SpriteSource = this.WizardAnimationStandDown;
+        this.SpawnPlayer();
+    }
+    
+    function CreateKnight()
+    {
+        this.Animator.PlayerAnimation.UpRunAnimation = this.KnightAnimationRunUp;
+        this.Animator.PlayerAnimation.DownRunAnimation = this.KnightAnimationRunDown;
+        this.Animator.PlayerAnimation.SideRunAnimation = this.KnightAnimationRunSide;
+        this.Animator.PlayerAnimation.UpAttackAnimation = this.KnightAnimationAttackUp;
+        this.Animator.PlayerAnimation.DownAttackAnimation = this.KnightAnimationAttackDown;
+        this.Animator.PlayerAnimation.SideAttackAnimation = this.KnightAnimationAttackSide;
+        this.Animator.PlayerAnimation.UpStandAnimation = this.KnightAnimationStandUp;
+        this.Animator.PlayerAnimation.DownStandAnimation = this.KnightAnimationStandDown;
+        this.Animator.PlayerAnimation.SideStandAnimation = this.KnightAnimationStandSide;
+        this.Player.PlayerHealth.MaxHealth = this.KnightHealth;
+        this.Player.PlayerMovement.Speed = this.KnightMoveSpeed;
+        this.Player.RemoveComponentByName("PlayerShoot");
+        this.Player.RemoveComponentByName("PlayerShootSpecial");
+        var specialIcon = this.Space.FindObjectByName("WizardSpecialIcon");
+        if (specialIcon != null)
+        {
+            specialIcon.Destroy();
+        }
+        this.Animator.Sprite.SpriteSource = this.KnightAnimationStandDown;
+        this.SpawnPlayer();
+    }
+}

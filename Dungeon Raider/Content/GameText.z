@@ -1,0 +1,39 @@
+class GameText : ZilchComponent
+{
+    [Property]
+    var DisappearTime : Real = 3.0;
+    var Cooldown : Real;
+    var IsActive : Boolean = false;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Cooldown = this.DisappearTime;
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.IsActive == true)
+        {
+            this.Owner.SpriteText.Visible = true;
+            this.Cooldown -= event.Dt;
+            
+            if (this.Cooldown <= 0)
+            {
+                this.IsActive = false;
+                this.Cooldown = this.DisappearTime;
+            }
+        }
+        else
+        {
+            this.Owner.SpriteText.Visible = false;
+        }
+    }
+    
+    function Print(text : String)
+    {
+        this.Owner.SpriteText.Text = text;
+        this.IsActive = true;
+    }
+}

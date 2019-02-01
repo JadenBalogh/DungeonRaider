@@ -1,0 +1,7 @@
+ContentLibrary = 
+{
+	string Name = "Dungeon Raider",
+	uint64 LibraryId = 5cd9af97c47601c8,
+	string SourceControlType = "",
+	bool ReadOnly = false,
+},

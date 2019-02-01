@@ -1,0 +1,52 @@
+class LocButton : ZilchComponent
+{
+    [Dependency]
+    var Sprite: Sprite;
+    [Property]
+    var SoundEffect : SoundCue = null;
+    [Property]
+    var NewLoc : Real3;
+    
+    var Camera : Cog;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Camera = this.Space.FindObjectByName("Camera");
+        
+        Zero.Connect(this.Owner, Events.MouseEnter, this.OnMouseEnter);
+        Zero.Connect(this.Owner, Events.MouseExit, this.OnMouseExit);
+        Zero.Connect(this.Owner, Events.MouseDown, this.OnMouseDown);
+        Zero.Connect(this.Owner, Events.MouseUp, this.OnMouseUp);
+
+        // reduce the alpha
+        this.Owner.Sprite.Color = this.Owner.Sprite.Color +
+                                  Real4(0.0, 0.0, 0.0, 0.25 - this.Owner.Sprite.Color.W);
+    }
+
+    function OnMouseUp(event : ViewportMouseEvent)
+    {
+        this.Camera.Transform.Translation = this.NewLoc;
+    }
+
+    function OnMouseDown(event : ViewportMouseEvent)
+    {
+        // Become brightest to show clicking
+        this.Owner.Sprite.Color = this.Owner.Sprite.Color +
+                                  Real4(0.0, 0.0, 0.0, 1.0 - this.Owner.Sprite.Color.W);
+    }
+
+    function OnMouseExit(event : ViewportMouseEvent)
+    {
+        // Become dullest to allow it to fade into the background
+        this.Owner.Sprite.Color = this.Owner.Sprite.Color +
+                                  Real4(0.0, 0.0, 0.0, 0.25 - this.Owner.Sprite.Color.W);
+    }
+
+    function OnMouseEnter(event : ViewportMouseEvent)
+    {
+        // Become brighter to show you are hovering over the button
+        this.Owner.Sprite.Color = this.Owner.Sprite.Color +
+                                  Real4(0.0, 0.0, 0.0, 0.75 - this.Owner.Sprite.Color.W);
+        this.Space.SoundSpace.PlayCue(this.SoundEffect);
+    }
+}

@@ -1,0 +1,20 @@
+ImageContent = 
+{
+	SpriteSourceBuilder = 
+	{
+		string Name = "bricktilecorner90",
+		uint64 ResourceId = 5653288c8b0325d2,
+		uint64 AtlasId = 5274cf95e4a661fd,
+		uint FrameSizeX = 320,
+		uint FrameSizeY = 320,
+		uint FrameCount = 1,
+		float FrameDelay = 0.0833333358,
+		float OriginX = 160,
+		float OriginY = 160,
+		float PixelsPerUnit = 320,
+		bool Smoothing = true,
+		bool Looping = true,
+		Vec4 Slices = [0, 0, 0, 0],
+		SpriteFill Fill = Stretch,
+	},
+},

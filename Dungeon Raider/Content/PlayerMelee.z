@@ -1,0 +1,49 @@
+class PlayerMelee : ZilchComponent
+{
+    [Property]
+    var AttackButton : MouseButtons;
+    [Property]
+    var Damage : Real;
+    [Property]
+    var Range : Real;
+    [Property] 
+    var Cooldown : Real;
+    [Property]
+    var SoundEffect : SoundCue;
+    
+    var TimeSinceLast : Real = 0.0;
+    var DistAway : Real;
+    var InRange : Boolean = false;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.GetDist();
+        
+        if (this.TimeSinceLast > 0.0)
+        {
+            this.TimeSinceLast -= event.Dt;
+        }
+        
+        if (this.TimeSinceLast <= 0 && this.DistAway <= this.Range)
+        {
+            this.InRange = true;
+        }
+        else
+        {
+            this.InRange = false;
+        }
+    }
+    
+    function GetDist()
+    {
+        var mousePos = this.LevelSettings.CameraViewport.ScreenToWorldZPlane(Zero.Mouse.ScreenPosition, 0.0);
+        //Square root((x2-x1)^2 + (y2-y1)^2) = Resultant distance from the player to the mouse
+        this.DistAway = Math.Sqrt((Math.Pow((mousePos.X - this.Owner.Transform.Translation.X), 2)) 
+        + (Math.Pow((mousePos.Y - this.Owner.Transform.Translation.Y), 2)));
+    }
+}

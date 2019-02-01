@@ -1,0 +1,56 @@
+class EnemyAnimation : ZilchComponent
+{
+    var Player : Cog = null;
+    [Property]
+    var MoveAnimation : SpriteSource = null;
+    [Property]
+    var AttackAnimation : SpriteSource = null;
+    [Property]
+    var AttackDuration : Real;
+    var DurTime : Real;
+    var IsAttacking : Boolean = false;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.DurTime = this.AttackDuration;
+        this.Player = this.Space.FindObjectByName("Player");
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if ((this.Owner.Sprite.SpriteSource == this.MoveAnimation
+        || this.Owner.Sprite.SpriteSource == this.AttackAnimation)
+        && this.IsAttacking == true)
+        {
+            this.DurTime -= event.Dt;
+            
+            if (this.DurTime <=  0)
+            {
+                this.IsAttacking = false;
+                this.DurTime = this.AttackDuration;
+            }
+            
+            this.Owner.Sprite.SpriteSource = this.AttackAnimation;
+        }
+        else
+        {
+            this.Owner.Sprite.SpriteSource = this.MoveAnimation;
+        }
+        
+        if (this.Player != null)
+        {
+            if (this.Owner.MovementVision.DistAway <= this.Owner.MovementVision.DetectionRadius
+            && this.Player.Transform.Translation.X > this.Owner.Transform.Translation.X)
+            {
+                this.Owner.Sprite.FlipX = false;
+            }
+            else if (this.Owner.MovementVision.DistAway <= this.Owner.MovementVision.DetectionRadius
+            && this.Player.Transform.Translation.X < this.Owner.Transform.Translation.X)
+            {
+                this.Owner.Sprite.FlipX = true;
+            }
+        }
+    }
+}
+

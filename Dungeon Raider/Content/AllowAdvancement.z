@@ -1,0 +1,21 @@
+class AllowAdvancement : ZilchComponent
+{
+    [Property]
+    var DoorName : String = null;
+    var Door : Cog = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Door = this.Space.FindObjectByName(this.DoorName);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.Owner.Health.CurrentHealth <= 0)
+        {
+            this.Door.DoorLogic.NumberOfEnemiesToOpenDoor -= 1;
+    }
+    
+    }
+}

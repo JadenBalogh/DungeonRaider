@@ -1,0 +1,28 @@
+class TextOnHover : ZilchComponent
+{
+    [Property]
+    var TextBoxName : String;
+    var TextBox : Cog = null;
+    [Property]
+    var SoundEffect : SoundCue;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.TextBox = this.Space.FindObjectByName(this.TextBoxName);
+        this.TextBox.SpriteText.Visible = false;
+        
+        Zero.Connect(this.Owner, Events.MouseEnter, this.OnMouseEnter);
+        Zero.Connect(this.Owner, Events.MouseExit, this.OnMouseExit);
+    }
+
+    function OnMouseExit(event : ViewportMouseEvent)
+    {
+        this.TextBox.SpriteText.Visible = false;
+    }
+
+    function OnMouseEnter(event : ViewportMouseEvent)
+    {
+        this.TextBox.SpriteText.Visible = true;
+        this.Space.SoundSpace.PlayCue(this.SoundEffect);
+    }
+}

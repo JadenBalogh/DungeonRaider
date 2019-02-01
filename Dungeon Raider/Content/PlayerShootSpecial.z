@@ -1,0 +1,73 @@
+class PlayerShootSpecial : ZilchComponent
+{
+    [Property]
+    var Shoot : MouseButtons;
+    [Property]
+    var Projectile : Archetype = null;
+    [Property]
+    var Damage : Real;
+    [Property]
+    var CreateDistance : Real = 1.0;
+    [Property]
+    var Speed : Real;
+    [Property] 
+    var Cooldown : Real;
+    [Property]
+    var SoundEffect : SoundCue;
+    
+    var TimeSinceLast : Real = 0.0;
+    var Icon : Cog = null;
+    var IsIconVisible : Boolean;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Icon = this.Space.FindObjectByName("WizardSpecialIcon");
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.IsIconVisible)
+        {
+            this.Icon.Sprite.Visible = true;
+        }
+        else
+        {
+            this.Icon.Sprite.Visible = false;
+        }
+        
+        if (this.TimeSinceLast > 0.0)
+        {
+            this.TimeSinceLast -= event.Dt;
+        }
+        
+        if (this.TimeSinceLast <= 0)
+        {
+            this.IsIconVisible = true;
+            
+            var direction = this.Owner.Orientation.WorldForward;
+            direction = Math.Normalize(direction);
+            
+            var position = this.Owner.Transform.WorldTranslation + (direction * this.CreateDistance);
+            
+            var projectile : Cog = null;
+            
+            if (Zero.Mouse.IsButtonDown(this.Shoot))
+            {
+                projectile = this.Space.CreateAtPosition(this.Projectile, position);
+                this.Space.SoundSpace.PlayCue(this.SoundEffect);
+                this.TimeSinceLast = this.Cooldown;
+                this.IsIconVisible = false;
+            }
+            
+            var mousePos = this.LevelSettings.CameraViewport.ScreenToWorldZPlane(Zero.Mouse.ScreenPosition, 0.0);
+            
+            if (projectile != null)
+            {
+                projectile.RigidBody.Velocity = direction * this.Speed;
+                projectile.CollisionDamage.Damage = this.Damage;
+                projectile.Orientation.LookAtPoint(mousePos);
+            }
+        }
+    }
+}

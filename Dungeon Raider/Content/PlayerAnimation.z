@@ -1,0 +1,147 @@
+class PlayerAnimation : ZilchComponent
+{
+    var UpRunAnimation : SpriteSource = null;
+    var DownRunAnimation : SpriteSource = null;
+    var SideRunAnimation : SpriteSource = null;
+    var UpStandAnimation : SpriteSource = null;
+    var DownStandAnimation : SpriteSource = null;
+    var SideStandAnimation : SpriteSource = null;
+    var UpAttackAnimation : SpriteSource = null;
+    var DownAttackAnimation : SpriteSource = null;
+    var SideAttackAnimation : SpriteSource = null;
+    var AttackButton : MouseButtons;
+    [Property]
+    var AttackCooldown : Real;
+    [Property]
+    var AttackDuration : Real;
+    var DurTime : Real;
+    var CoolTime : Real;
+    var IsAttacking : Boolean = false;
+    
+    var Player : Cog = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Player = this.Space.FindObjectByName("Player");
+        
+        if (this.Player.PlayerMelee != null)
+        {
+            this.AttackButton = this.Player.PlayerMelee.AttackButton;
+        }
+        else
+        {
+            this.AttackButton = this.Player.PlayerShoot.Shoot;
+        }
+        this.DurTime = this.AttackDuration;
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var mousePos = this.LevelSettings.CameraViewport.ScreenToWorldZPlane(Zero.Mouse.ScreenPosition, 0.0);
+        this.Owner.Transform.Translation = this.Player.Transform.Translation;
+        if (this.CoolTime > 0)
+        {
+            this.CoolTime -= event.Dt;
+        }
+        
+        if (Zero.Mouse.IsButtonDown(this.AttackButton) && this.CoolTime <= 0)
+        {
+            this.CoolTime = this.AttackCooldown;
+            this.IsAttacking = true;
+        }
+        if (this.IsAttacking)
+        {
+            //Console.WriteLine("Is Attacking `this.IsAttacking` : Durtime `this.DurTime` : CoolTime `this.CoolTime`");
+            this.DurTime -= event.Dt;
+            
+            if (this.DurTime <=  0)
+            {
+                this.IsAttacking = false;
+                this.DurTime = this.AttackDuration;
+            }
+            if (mousePos.Y > this.Owner.Transform.WorldTranslation.Y + 1)
+            {
+                this.Owner.Sprite.SpriteSource = this.UpAttackAnimation;
+            }
+            if (mousePos.Y < this.Owner.Transform.WorldTranslation.Y - 1)
+            {
+                this.Owner.Sprite.SpriteSource = this.DownAttackAnimation;
+            }
+            if (mousePos.Y < this.Owner.Transform.WorldTranslation.Y + 1
+            && mousePos.Y > this.Owner.Transform.WorldTranslation.Y - 1
+            && mousePos.X > this.Owner.Transform.Translation.X)
+            {
+                this.Owner.Sprite.SpriteSource = this.SideAttackAnimation;
+                this.Owner.Sprite.FlipX = true;
+            }
+            if (mousePos.Y < this.Owner.Transform.WorldTranslation.Y + 1
+            && mousePos.Y > this.Owner.Transform.WorldTranslation.Y - 1
+            && mousePos.X < this.Owner.Transform.Translation.X)
+            {
+                this.Owner.Sprite.SpriteSource = this.SideAttackAnimation;
+                this.Owner.Sprite.FlipX = false;
+            }
+        }
+        
+        else if (Zero.Keyboard.KeyIsUp(this.Player.PlayerMovement.Right)
+        && Zero.Keyboard.KeyIsUp(this.Player.PlayerMovement.Left)
+        && Zero.Keyboard.KeyIsUp(this.Player.PlayerMovement.Up)
+        && Zero.Keyboard.KeyIsUp(this.Player.PlayerMovement.Down))
+        {
+            if (this.Owner.Sprite.SpriteSource == this.UpRunAnimation
+            || this.Owner.Sprite.SpriteSource == this.UpAttackAnimation)
+            {
+                this.Owner.Sprite.SpriteSource = this.UpStandAnimation;
+            }
+            if (this.Owner.Sprite.SpriteSource == this.DownRunAnimation
+            || this.Owner.Sprite.SpriteSource == this.DownAttackAnimation)
+            {
+                this.Owner.Sprite.SpriteSource = this.DownStandAnimation;
+            }
+            if (this.Owner.Sprite.SpriteSource == this.SideRunAnimation
+            || this.Owner.Sprite.SpriteSource == this.SideAttackAnimation)
+            {
+                this.Owner.Sprite.SpriteSource = this.SideStandAnimation;
+            }
+        }
+        
+        else
+        {
+            if (Zero.Keyboard.KeyIsDown(this.Player.PlayerMovement.Right))
+            {
+                this.Owner.Sprite.FlipX = true;
+                if (this.Owner.Sprite.SpriteSource != this.SideRunAnimation)
+                {
+                    this.Owner.Sprite.SpriteSource = this.SideRunAnimation;
+                }
+            }
+            
+            if (Zero.Keyboard.KeyIsDown(this.Player.PlayerMovement.Left))
+            {
+                this.Owner.Sprite.FlipX = false;
+                if (this.Owner.Sprite.SpriteSource != this.SideRunAnimation)
+                {
+                    this.Owner.Sprite.SpriteSource = this.SideRunAnimation;
+                }
+            }
+            
+            else if(Zero.Keyboard.KeyIsDown(this.Player.PlayerMovement.Up) 
+            && Zero.Keyboard.KeyIsUp(this.Player.PlayerMovement.Right)
+            && Zero.Keyboard.KeyIsUp(this.Player.PlayerMovement.Left)
+            && this.Owner.Sprite.SpriteSource != this.UpRunAnimation)
+            {
+                this.Owner.Sprite.SpriteSource = this.UpRunAnimation;
+            }
+            
+            else if(Zero.Keyboard.KeyIsDown(this.Player.PlayerMovement.Down)
+            && Zero.Keyboard.KeyIsUp(this.Player.PlayerMovement.Right)
+            && Zero.Keyboard.KeyIsUp(this.Player.PlayerMovement.Left)
+            && this.Owner.Sprite.SpriteSource != this.DownRunAnimation)
+            {
+                this.Owner.Sprite.SpriteSource = this.DownRunAnimation;
+            }
+        }
+    }
+}

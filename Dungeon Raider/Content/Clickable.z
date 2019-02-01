@@ -1,0 +1,25 @@
+class Clickable : ZilchComponent
+{
+    var Player : Cog = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Player = this.Space.FindObjectByName("Player");
+        
+        Zero.Connect(this.Owner, Events.MouseDown, this.OnMouseDown);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+    
+    function OnMouseDown(event : ViewportMouseEvent)
+    {
+        if (this.Player.PlayerMelee != null && this.Player.PlayerMelee.InRange)
+        {
+            this.Space.SoundSpace.PlayCue(this.Player.PlayerMelee.SoundEffect);
+            this.Owner.Health.CurrentHealth -= this.Player.PlayerMelee.Damage;
+            this.Player.PlayerMelee.TimeSinceLast = this.Player.PlayerMelee.Cooldown;
+        }
+    }
+}

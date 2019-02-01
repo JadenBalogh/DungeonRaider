@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "VariableStorage",
+		uint64 ResourceId = 56b37c769d1476ed,
+	},
+},

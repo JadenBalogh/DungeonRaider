@@ -1,0 +1,100 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "RangedEnemy",
+	},
+	Archetyped = 
+	{
+		string Name = "56608940fb8a1d0d:EnemyRanged",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1.20000005, 1.29999995, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Sprite = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = true,
+		bool CastShadows = false,
+		Vec4 Color = [1, 1, 1, 1],
+		BlendMode BlendMode = Alpha,
+		SpriteGeometryMode GeometryMode = ZPlane,
+		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+		string SpriteSource = "5686e1db90ee3c88:awizard2",
+		bool RenderMask = false,
+		bool FlipX = false,
+		bool FlipY = false,
+		bool AnimationActive = true,
+		float AnimationSpeed = 1,
+		uint StartFrame = 0,
+	},
+	Reactive = 
+	{
+		bool Active = true,
+		bool CaptureMouse = false,
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = true,
+		bool Mode2D = true,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	BoxCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		Vec3 Size = [0.449999988, 0.600000024, 0.5],
+	},
+	MovementVision = 
+	{
+		float Speed = 2.79999995,
+		float DetectionRadius = 8,
+	},
+	AttackVision = 
+	{
+		bool IsMelee = false,
+		float DetectionRadius = 5,
+		float Damage = 2,
+		string Projectile = "56573e9ae23f8d63:Bullet",
+		float CreateDistance = 1.29999995,
+		float Speed = 12,
+		float Cooldown = 1,
+	},
+	Health = 
+	{
+		float XPWorth = 2,
+		string DeathText = "+2xp",
+		float MaxHealth = 10,
+		string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+		int FoodDropChance = 50,
+		float Shield = 1,
+		bool IsSpawned = true,
+	},
+	Clickable = 
+	{
+	},
+	EnemyAnimation = 
+	{
+		string MoveAnimation = "5686e1db90ee3c88:awizard2",
+		string AttackAnimation = "5686e1db90ee3c88:awizard2",
+		float AttackDuration = 5,
+	},
+},

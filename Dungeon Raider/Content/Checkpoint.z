@@ -1,0 +1,39 @@
+class Checkpoint : ZilchComponent
+{
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        if (event.OtherObject.PlayerHealth != null)
+        {
+            this.GameSession.VariableStorage.PlayerPosition = this.LevelSettings.LevelReset.PlayerPosition;
+            this.GameSession.VariableStorage.Level = this.LevelSettings.Experience.Level;
+            this.GameSession.VariableStorage.XP = this.LevelSettings.Experience.XP;
+            this.GameSession.VariableStorage.XPMax = this.LevelSettings.Experience.XPMax;
+            this.GameSession.VariableStorage.CurrentHealth = event.OtherObject.PlayerHealth.CurrentHealth;
+            this.GameSession.VariableStorage.MaxHealth = event.OtherObject.PlayerHealth.MaxHealth;
+            this.GameSession.VariableStorage.SurvivalTime = this.LevelSettings.Survival.SurvivalTime;
+            this.GameSession.VariableStorage.InitialTime = this.LevelSettings.Survival.InitialTime;
+            this.GameSession.VariableStorage.SprintTime = event.OtherObject.PlayerMovement.SprintTime;
+            this.GameSession.VariableStorage.OriginalSprintTime = event.OtherObject.PlayerMovement.OriginalSprintTime;
+            if (event.OtherObject.PlayerShoot != null)
+            {
+                this.GameSession.VariableStorage.ShootDamage = event.OtherObject.PlayerShoot.Damage;
+                this.GameSession.VariableStorage.ShootCooldown = event.OtherObject.PlayerShoot.Cooldown;
+                this.GameSession.VariableStorage.ShootSpecialDamage = event.OtherObject.PlayerShootSpecial.Damage;
+                this.GameSession.VariableStorage.ShootSpecialTime = event.OtherObject.PlayerShootSpecial.TimeSinceLast;
+                this.GameSession.VariableStorage.IsIconVisible = event.OtherObject.PlayerShootSpecial.IsIconVisible;
+            }
+            if (event.OtherObject.PlayerMelee != null)
+            {
+                this.GameSession.VariableStorage.MeleeDamage = event.OtherObject.PlayerMelee.Damage;
+                this.GameSession.VariableStorage.MeleeSpecialCool = event.OtherObject.PlayerMeleeSpecial.CoolTime;
+                this.GameSession.VariableStorage.MeleeSpecialDur = event.OtherObject.PlayerMeleeSpecial.DurTime;
+                this.GameSession.VariableStorage.IsIconVisible = event.OtherObject.PlayerMeleeSpecial.IsIconVisible;
+            }
+        }
+    }
+}

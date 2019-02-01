@@ -1,0 +1,12 @@
+BinaryContent = 
+{
+	BinaryBuilder = 
+	{
+		string Name = "DungeonWest_TileMap00",
+		uint64 ResourceId = 56501b444eeffd9a,
+		string LoaderType = "TileMapSource",
+		uint Version = 0,
+		string FilterTag = "",
+		string ResourceOwner = "56501bb73ff49793:DungeonWest",
+	},
+},

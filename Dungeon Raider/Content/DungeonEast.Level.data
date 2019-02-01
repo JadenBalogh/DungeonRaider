@@ -1,0 +1,6326 @@
+Level = 
+{
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 1,
+		},
+		Named = 
+		{
+			string Name = "LevelSettings",
+		},
+		CameraViewport = 
+		{
+			bool Background = true,
+			Vec2 Offset = [0, 0],
+			Vec2 Size = [1, 1],
+			int Layer = 0,
+			bool Active = true,
+			bool Blocking = true,
+			CogPath Renderer = 
+			{
+				string Path = ".",
+				bool ErrorOnResolveToNull = false,
+				bool ErrorOnPathCantCompute = false,
+				bool ErrorOnDirectLinkFail = false,
+				bool UpdateCogOnPathChange = true,
+				bool UpdatePathOnCogChange = true,
+				bool UpdateCogOnInitialize = true,
+				bool ResolvedNullErrorOccurred = false,
+				uint ResolvedCog = 1,
+				CogPathPreference PathPreference0 = CogRelative,
+				CogPathPreference PathPreference1 = SpaceRelative,
+				CogPathPreference PathPreference2 = Absolute,
+			},
+			CogPath Camera = 
+			{
+				string Path = ":/Camera",
+				bool ErrorOnResolveToNull = false,
+				bool ErrorOnPathCantCompute = false,
+				bool ErrorOnDirectLinkFail = false,
+				bool UpdateCogOnPathChange = true,
+				bool UpdatePathOnCogChange = true,
+				bool UpdateCogOnInitialize = true,
+				bool ResolvedNullErrorOccurred = false,
+				uint ResolvedCog = 2,
+				CogPathPreference PathPreference0 = CogRelative,
+				CogPathPreference PathPreference1 = SpaceRelative,
+				CogPathPreference PathPreference2 = Absolute,
+			},
+			ViewportScaling Scaling = Letterbox,
+			Vec2 Resolution = [1280, 720],
+			Vec4 MarginColor = [0, 0, 0, 1],
+		},
+		ForwardRenderer = 
+		{
+			Vec4 ClearColor = [0.155000001, 0.155000001, 0.155000001, 1],
+			bool DrawNonVisible = false,
+			bool DrawDebugObjects = true,
+			bool DrawEditorIcons = true,
+			bool EditorIconDepth = true,
+			bool Wireframe = false,
+		},
+		GridDraw = 
+		{
+			bool Active = true,
+			bool HalfCellOffset = false,
+			float CellSize = 1,
+			GridAxis Axis = ZAxis,
+			int Lines = 200,
+			bool DrawAxisOrigins = true,
+			bool AlwaysDrawInEditor = true,
+			bool DrawInGame = false,
+			Vec4 GridColor = [0.5, 0.5, 0.5, 0.400000006],
+			Vec4 GridHiLight = [0, 0, 0, 0.400000006],
+			int HilightInterval = 20,
+			bool FollowEditorCamera = false,
+		},
+		LevelReset = 
+		{
+			Vec3 PlayerPosition = [0, 0, 0],
+			string DeathLevel = "565744d1bd222ef1:DeathLevel",
+			Vec3 RespawnPosition = [0, 0, 0],
+			string KnightAnimationRunUp = "566a7a351dd20ea1:meleeback",
+			string KnightAnimationRunDown = "566a7abc39a252ea:meleefront",
+			string KnightAnimationRunSide = "566a7bbfcdfb9b12:meleeside",
+			string KnightAnimationAttackUp = "566a7a3a1c3c689e:meleebackattk",
+			string KnightAnimationAttackDown = "566a7b4238e07095:meleefrontattk",
+			string KnightAnimationAttackSide = "56698449cfcfc576:meleesideattk",
+			string KnightAnimationStandUp = "5678a8eb2f97b760:meleestandback",
+			string KnightAnimationStandDown = "5678a890246251bf:meleestandfront",
+			string KnightAnimationStandSide = "5678a8cd364a2184:meleestandside",
+			float KnightHealth = 25,
+			float KnightMoveSpeed = 5,
+			string WizardAnimationRunUp = "566ca44ee314f935:wizardback0",
+			string WizardAnimationRunDown = "566c99831b4962ad:wizardfront0",
+			string WizardAnimationRunSide = "566c9b91f4538247:wizardside0",
+			string WizardAnimationAttackUp = "566ca454e271128d:wizardbackattk0",
+			string WizardAnimationAttackDown = "566c9afa2c196f58:wizardfrontattk0",
+			string WizardAnimationAttackSide = "566c9b99f614dcc0:wizardsideattk0",
+			string WizardAnimationStandUp = "566ca454e271128d:wizardbackattk0",
+			string WizardAnimationStandDown = "566c9afa2c196f58:wizardfrontattk0",
+			string WizardAnimationStandSide = "566c9b99f614dcc0:wizardsideattk0",
+			float WizardHealth = 8,
+			float WizardMoveSpeed = 5,
+		},
+		Survival = 
+		{
+			float SurvivalTime = 60,
+			float StarveDamage = 2,
+			float StarveInterval = 1,
+		},
+		SpawnEnemies = 
+		{
+			Vec3 StartPoint = [0, 0, 0],
+			float SafeRadius = 1,
+			float NorthBoundary = 0,
+			float SouthBoundary = 0,
+			float WestBoundary = 0,
+			float EastBoundary = 0,
+			float MaxSpawns = 0,
+			string EnemyToSpawn1 = "",
+			float ChanceToSpawn1 = 0,
+			string EnemyToSpawn2 = "",
+			float ChanceToSpawn2 = 0,
+			string EnemyToSpawn3 = "",
+			float ChanceToSpawn3 = 0,
+			string EnemyToSpawn4 = "",
+			float ChanceToSpawn4 = 0,
+			float SpawnInterval = 0,
+		},
+		Experience = 
+		{
+			float HealthIncrease = 5,
+			float SprintSpeedIncrease = 0.100000001,
+			float SprintTimeIncrease = 0.349999994,
+			float SurvivalTimeIncrease = 5,
+			float DamageIncrease = 0.25,
+			float CooldownDecrease = 0.0500000007,
+			string SoundEffect = "56b40cc9258e4b22:Experience",
+		},
+		PauseGame = 
+		{
+			Enum MenuKey = Space,
+			string HudLevel = "569d424fc7146bfa:PauseGame",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 3,
+		},
+		Named = 
+		{
+			string Name = "EditorCamera",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-3.75303483, -4.27427912, 29.9990005],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [-0, -1.09278471e-008, 0, 1],
+		},
+		Camera = 
+		{
+			ProjectionMode ProjectionMode = Orthographic,
+			Facing Facing = NegativeZ,
+			CameraTransparentSort TransparentSort = ZDepth,
+			float FieldOfView = 45,
+			float NearPlane = 0.5,
+			float FarPlane = 10000,
+			float Size = 36.7879906,
+		},
+		EditorCameraController = 
+		{
+			ControlMode ControlMode = ZPlane,
+			float LookDistance = 50,
+			float VerticalAngle = 0,
+			float HorizontalAngle = 0,
+			Vec3 LookTarget = [-3.75303483, -4.27427912, -20.0009995],
+			float MoveSensitivity = 1,
+		},
+		EditorRenderer = 
+		{
+			Vec4 ClearColor = [0.155000001, 0.155000001, 0.155000001, 1],
+			bool DrawNonVisible = true,
+			bool DrawDebugObjects = true,
+			bool DrawEditorIcons = true,
+			bool Wireframe = false,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 4,
+		},
+		Named = 
+		{
+			string Name = "Player",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [1.4239192, -47.6676903, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [0.359999955, 0.397800058, 0.899999976, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5275aa4d802dd6dc:Square",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		Orientation = 
+		{
+			Vec3 GlobalUp = [0, 0, 1],
+			Vec3 UpVector = [0, 0, 1],
+			Vec3 ForwardVector = [1, 0, 0],
+			OrientationBases DefaultBases = ForwardXUpZ,
+		},
+		PlayerMovement = 
+		{
+			Enum Up = W,
+			Enum Down = S,
+			Enum Left = A,
+			Enum Right = D,
+			Enum Sprint = Shift,
+			float SprintSpeed = 7,
+			float SprintCost = 1,
+			float SprintTime = 2.5,
+			float SprintWait = 2,
+			string SoundEffectWalk = "56b34cd6c8abbcbc:Walk",
+			string SoundEffectSprint = "5696993181c038cc:Sprint",
+		},
+		PlayerRotation = 
+		{
+			float ArrowLength = 3,
+		},
+		PlayerHealth = 
+		{
+		},
+		PlayerShoot = 
+		{
+			Enum Shoot = Left,
+			string Projectile = "5660885c2a308736:PlayerBullet",
+			float Damage = 2.5,
+			float Range = 8,
+			float CreateDistance = 1,
+			float Speed = 15,
+			float Cooldown = 0.800000012,
+			string SoundEffect = "56b348f79225e3a8:WizardSHoot",
+		},
+		PlayerShootSpecial = 
+		{
+			Enum Shoot = Right,
+			string Projectile = "566088f2cb8e5c2d:PlayerSpecialBullet",
+			float Damage = 45,
+			float CreateDistance = 1,
+			float Speed = 8,
+			float Cooldown = 30,
+			string SoundEffect = "56b348da9d237656:WixardSPecilal",
+		},
+		PlayerMelee = 
+		{
+			Enum AttackButton = Left,
+			float Damage = 3.5,
+			float Range = 2.5,
+			float Cooldown = 0.300000012,
+			string SoundEffect = "56b34df78fb18c25:Meleeattk",
+		},
+		PlayerMeleeSpecial = 
+		{
+			Enum ShieldKey = Right,
+			float Duration = 7,
+			float Cooldown = 30,
+			string SoundEffect = "5696a75aa6ddd293:Aura",
+			string ShieldEffect = "56624d7229a710ed:AuraShield",
+		},
+		Hierarchy = 
+		{
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 5,
+		},
+		Named = 
+		{
+			string Name = "PlayerAnimator",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "566984d8ea4ff595:meleestanding",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		PlayerAnimation = 
+		{
+			float AttackCooldown = 0.400000006,
+			float AttackDuration = 0.200000003,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 2,
+		},
+		Named = 
+		{
+			string Name = "Camera",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [37.4440765, 0.59004879, 40],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Camera = 
+		{
+			ProjectionMode ProjectionMode = Orthographic,
+			Facing Facing = NegativeZ,
+			CameraTransparentSort TransparentSort = InheritFromSpace,
+			float FieldOfView = 45,
+			float NearPlane = 0.5,
+			float FarPlane = 200,
+			float Size = 16,
+		},
+		SoundListener = 
+		{
+			bool Active = true,
+		},
+		CameraLogic = 
+		{
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 6,
+				},
+				Named = 
+				{
+					string Name = "WizardSpecialIcon",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [1, -4.99999952, -35],
+					Vec3 Scale = [0.100000001, 0.100000001, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "56b5dad4baeb2008:afire",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+				Hierarchy = 
+				{
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 7,
+				},
+				Named = 
+				{
+					string Name = "KnightSpecialIcon",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [1, -5, -35],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "56b5dad4baca1516:aaaashield",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+				Hierarchy = 
+				{
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 8,
+				},
+				Named = 
+				{
+					string Name = "GameText",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [7.87198257, -5.48230171, -35],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteText = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string FontName = "5640fb85e0dac43f:ka1",
+					uint FontSize = 53,
+					string Text = "",
+					TextAlign Align = Center,
+					float PixelsPerUnit = 64,
+					bool Smoothing = true,
+				},
+				Area = 
+				{
+					Vec2 Size = [8, 1],
+					Location Origin = Center,
+				},
+				GameText = 
+				{
+					float DisappearTime = 3,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 9,
+				},
+				Named = 
+				{
+					string Name = "LevelText",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [10.5045853, -7.14875221, -35],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteText = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string FontName = "5640fb85e0dac43f:ka1",
+					uint FontSize = 30,
+					string Text = "",
+					TextAlign Align = Left,
+					float PixelsPerUnit = 64,
+					bool Smoothing = true,
+				},
+				Area = 
+				{
+					Vec2 Size = [2, 1],
+					Location Origin = Center,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 10,
+				},
+				Named = 
+				{
+					string Name = "HealthText",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [10.6487541, 5.8152051, -35],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteText = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string FontName = "5640fb85e0dac43f:ka1",
+					uint FontSize = 30,
+					string Text = "",
+					TextAlign Align = Left,
+					float PixelsPerUnit = 64,
+					bool Smoothing = true,
+				},
+				Area = 
+				{
+					Vec2 Size = [2, 1],
+					Location Origin = Center,
+				},
+				Hierarchy = 
+				{
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 11,
+				},
+				Named = 
+				{
+					string Name = "XPBar",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-9, -6.5, -35],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [1, 0.884299874, 0.110000014, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "5275aa4d802dd6dc:Square",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+				Area = 
+				{
+					Vec2 Size = [18, 1],
+					Location Origin = TopLeft,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 12,
+				},
+				Named = 
+				{
+					string Name = "SurvivalBar",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-9, 6.5, -35],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [0.0782999992, 0.290000021, 0.112172022, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "5275aa4d802dd6dc:Square",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+				Area = 
+				{
+					Vec2 Size = [8, 1],
+					Location Origin = TopLeft,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 13,
+				},
+				Named = 
+				{
+					string Name = "HealthBar",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [1, 6.5, -35],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [0.795000017, 0.155025005, 0.155408904, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "5275aa4d802dd6dc:Square",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+				Area = 
+				{
+					Vec2 Size = [8, 1],
+					Location Origin = TopLeft,
+				},
+				Hierarchy = 
+				{
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 14,
+				},
+				Named = 
+				{
+					string Name = "SprintBar",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-9, -5, -35],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [0.150975049, 0.7316342, 0.915000021, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "5275aa4d802dd6dc:Square",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+				Area = 
+				{
+					Vec2 Size = [9, 0.200000003],
+					Location Origin = CenterLeft,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 15,
+				},
+				Named = 
+				{
+					string Name = "IconBackground",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [5, 6, -36],
+					Vec3 Scale = [8.10000038, 1.10000002, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [0.501960814, 0, 0.150588334, 0.200000003],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "5275aa4d802dd6dc:Square",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 16,
+				},
+				Named = 
+				{
+					string Name = "IconBackground",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, -7, -36],
+					Vec3 Scale = [18, 0.899999976, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [1, 0.890149891, 0.154999971, 0.200000003],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "5275aa4d802dd6dc:Square",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 17,
+				},
+				Named = 
+				{
+					string Name = "IconBackground",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-4.5, -5, -36],
+					Vec3 Scale = [9, 0.200000003, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [0.154999971, 1, 1, 0.200000003],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "5275aa4d802dd6dc:Square",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 18,
+				},
+				Named = 
+				{
+					string Name = "IconBackground",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-5, 6, -36],
+					Vec3 Scale = [8.10000038, 1.10000002, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [0.0127750039, 0.36500001, 0.174798518, 0.200000003],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "5275aa4d802dd6dc:Square",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 19,
+				},
+				Named = 
+				{
+					string Name = "Sprite",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0.990097046, -5.00166512, -35.0009995],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [0.149019599, 0.733333111, 0.913725555, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "5275aa4d802dd6dc:Square",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 20,
+		},
+		Named = 
+		{
+			string Name = "Music",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [52.466053, 5.83455658, 5.86477427e-007],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5275aa4d802dd6dc:Square",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		SoundEmitter = 
+		{
+			float Volume = 1,
+			float Pitch = 0,
+			bool Positional = false,
+			int Version = 1,
+		},
+		SimpleSound = 
+		{
+			bool StartPlaying = true,
+			string CueName = "5640d5567d273bbb:Dungeons",
+		},
+		Hierarchy = 
+		{
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 21,
+		},
+		Named = 
+		{
+			string Name = "TileInvisisble",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [1.41304302, 11.3043556, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		MultiSprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+		},
+		TileMap = 
+		{
+			string SourceName = "5650666b916f1848:DungeonEast_TileMap00",
+			string PaletteName = "56559bc292726aa2:Invisibleeeee",
+			float UnitsPerTile = 1,
+			float MeshThickness = 1.20000005,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 22,
+		},
+		Named = 
+		{
+			string Name = "TileMap",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, -10],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		MultiSprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+		},
+		TileMap = 
+		{
+			string SourceName = "5650666b9166a701:DungeonEast_TileMap01",
+			string PaletteName = "568526e658075197:dungeons",
+			float UnitsPerTile = 1,
+			float MeshThickness = 1.20000005,
+		},
+		Hierarchy = 
+		{
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 23,
+		},
+		Named = 
+		{
+			string Name = "Portal",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0.0533534288, 3.90376258, 0],
+			Vec3 Scale = [3, 3, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "56b05b45474a7335:dungeon entrance004",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Checkpoint = 
+		{
+		},
+		ChangeLevel = 
+		{
+			string Level = "5673af7a45adb764:EastHub",
+			int MinimumLevel = 1,
+			Vec3 NextPosition = [76.5, -3, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, -0.100000001, 0],
+			Vec3 Size = [0.25, 0.300000012, 0.5],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 24,
+		},
+		Named = 
+		{
+			string Name = "Portal",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0.318162203, -246.710556, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "56b05b45474a7335:dungeon entrance004",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Checkpoint = 
+		{
+		},
+		ChangeLevel = 
+		{
+			string Level = "5673af7a45adb764:EastHub",
+			int MinimumLevel = 1,
+			Vec3 NextPosition = [76.5, -3, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "567fd3ed5e822941:hubtable",
+		LinkId = 
+		{
+			uint Id = 25,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-7.06803751, -69.9669952, 0],
+			Vec3 Scale = [2.08497238, 2.92613816, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Table",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "567fd3ed5e822941:hubtable",
+		LinkId = 
+		{
+			uint Id = 26,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [9.01892281, -69.9669952, 0],
+			Vec3 Scale = [2.08497238, 2.92613816, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Table",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "5655983c7703178d:Health",
+		LinkId = 
+		{
+			uint Id = 27,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0.0194511414, -48.1191673, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Health",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "5655983c7703178d:Health",
+		LinkId = 
+		{
+			uint Id = 28,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [9.07131577, -68.4954834, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Health",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "5655983c7703178d:Health",
+		LinkId = 
+		{
+			uint Id = 29,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-7.02211285, -68.3218613, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Health",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "5655983c7703178d:Health",
+		LinkId = 
+		{
+			uint Id = 30,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-27.8865242, -24.532196, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Health",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "5655983c7703178d:Health",
+		LinkId = 
+		{
+			uint Id = 31,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [28.4754524, -25.075676, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Health",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 32,
+		},
+		Named = 
+		{
+			string Name = "left",
+		},
+		Archetyped = 
+		{
+			string Name = "56b8373f240bef7a:bob",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0.540670395, -73.6626358, 0],
+			Vec3 Scale = [7, 6, 0.853428364],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		DoorLogic = 
+		{
+			int NumberOfEnemiesToOpenDoor = 2,
+			string SoundEffect = "",
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [0.289999843, 1, 0, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "567fd4c7311839f0:door000",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		DisappearOnCollision = 
+		{
+			bool IsActive = true,
+			string SoundEffect = "56b34d859e8193ec:Doo",
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.150000006, 0.5],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		Checkpoint = 
+		{
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "5655983c7703178d:Health",
+		LinkId = 
+		{
+			uint Id = 33,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0.649363637, -90.2931061, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Health",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "5655983c7703178d:Health",
+		LinkId = 
+		{
+			uint Id = 34,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-42.5028152, -127.895645, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Health",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "5655983c7703178d:Health",
+		LinkId = 
+		{
+			uint Id = 35,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [42.0624123, -127.901779, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Health",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 36,
+		},
+		Named = 
+		{
+			string Name = "Door",
+		},
+		Archetyped = 
+		{
+			string Name = "567fd41c5d9fa862:hubdoor",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-28.5, -53.5, 3.81469727e-006],
+			Vec3 Scale = [5, 3, 9.99999975e-005],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "567fd4c7311839f0:door000",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Checkpoint = 
+		{
+		},
+		DisappearOnCollision = 
+		{
+			bool IsActive = true,
+			string SoundEffect = "56b34d859e8193ec:Doo",
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.150000006, 0.5],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 37,
+		},
+		Named = 
+		{
+			string Name = "Door",
+		},
+		Archetyped = 
+		{
+			string Name = "567fd41c5d9fa862:hubdoor",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [28.633213, -53.5, 3.81469727e-006],
+			Vec3 Scale = [5, 3, 9.99999975e-005],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "567fd4c7311839f0:door000",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Checkpoint = 
+		{
+		},
+		DisappearOnCollision = 
+		{
+			bool IsActive = true,
+			string SoundEffect = "56b34d859e8193ec:Doo",
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.150000006, 0.5],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 38,
+		},
+		Named = 
+		{
+			string Name = "Door",
+		},
+		Archetyped = 
+		{
+			string Name = "567fd41c5d9fa862:hubdoor",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [17.5479145, -60.7153549, 3.81469727e-006],
+			Vec3 Scale = [3.63218355, 3.52478504, 0.853428364],
+			Quat Rotation = [0, 0, 0.707106769, 0.707106769],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "567fd4c7311839f0:door000",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Checkpoint = 
+		{
+		},
+		DisappearOnCollision = 
+		{
+			bool IsActive = true,
+			string SoundEffect = "56b34d859e8193ec:Doo",
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.150000006, 0.5],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 39,
+		},
+		Named = 
+		{
+			string Name = "Door",
+		},
+		Archetyped = 
+		{
+			string Name = "567fd41c5d9fa862:hubdoor",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-17.4253635, -59.7691574, 3.81469727e-006],
+			Vec3 Scale = [3.63218355, 3.52478504, 0.853428364],
+			Quat Rotation = [0, 0, 0.707106769, 0.707106769],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "567fd4c7311839f0:door000",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Checkpoint = 
+		{
+		},
+		DisappearOnCollision = 
+		{
+			bool IsActive = true,
+			string SoundEffect = "56b34d859e8193ec:Doo",
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.150000006, 0.5],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "567fd3ed5e822941:hubtable",
+		LinkId = 
+		{
+			uint Id = 40,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-45.8939018, -153.336517, 0.000247955322],
+			Vec3 Scale = [2.08497238, 2.92613816, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Table",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "567fd3ed5e822941:hubtable",
+		LinkId = 
+		{
+			uint Id = 41,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [48.4401779, -153.553909, 0],
+			Vec3 Scale = [2.08497238, 2.92613816, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Table",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "5655983c7703178d:Health",
+		LinkId = 
+		{
+			uint Id = 42,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [11.2409706, -216.657578, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Health",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "5655983c7703178d:Health",
+		LinkId = 
+		{
+			uint Id = 43,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-9.3157196, -216.173248, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Health",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "5655983c7703178d:Health",
+		LinkId = 
+		{
+			uint Id = 44,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [11.8009834, -242.553162, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Health",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "5655983c7703178d:Health",
+		LinkId = 
+		{
+			uint Id = 45,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-9.69141579, -242.068787, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Health",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "567fd3ed5e822941:hubtable",
+		LinkId = 
+		{
+			uint Id = 46,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-6.8994503, -13.0869446, 0],
+			Vec3 Scale = [2.08497238, 2.92613816, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Table",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "567fd3ed5e822941:hubtable",
+		LinkId = 
+		{
+			uint Id = 47,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [6.64189053, -13.0869446, 0],
+			Vec3 Scale = [2.08497238, 2.92613816, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Table",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 48,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56608f711ae6affd:EnemyMelee",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [12.5910301, -4.97757769, 3.81469727e-006],
+			Vec3 Scale = [1.5, 1.5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5693aea1feecbbde:enemywalk1",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Clickable = 
+		{
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.349999994, 0.5, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 8,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = true,
+			float DetectionRadius = 1.5,
+			float Damage = 2.5,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 1.25,
+		},
+		Health = 
+		{
+			float XPWorth = 2,
+			string DeathText = "+2xp",
+			float MaxHealth = 8,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 25,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5693aea1feecbbde:enemywalk1",
+			string AttackAnimation = "5693aea9f0839f01:enemyattk1",
+			float AttackDuration = 1,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 49,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56608f711ae6affd:EnemyMelee",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-12.5714111, -6.91399002, 0],
+			Vec3 Scale = [1.5, 1.5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5693aea1feecbbde:enemywalk1",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Clickable = 
+		{
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.349999994, 0.5, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 8,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = true,
+			float DetectionRadius = 1.5,
+			float Damage = 2.5,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 1.25,
+		},
+		Health = 
+		{
+			float XPWorth = 2,
+			string DeathText = "+2xp",
+			float MaxHealth = 8,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 25,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5693aea1feecbbde:enemywalk1",
+			string AttackAnimation = "5693aea9f0839f01:enemyattk1",
+			float AttackDuration = 1,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 50,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56608f711ae6affd:EnemyMelee",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-15.8450966, -5.85094357, 3.81469727e-006],
+			Vec3 Scale = [1.5, 1.5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5693aea1feecbbde:enemywalk1",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Clickable = 
+		{
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.349999994, 0.5, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 8,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = true,
+			float DetectionRadius = 1.5,
+			float Damage = 2.5,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 1.25,
+		},
+		Health = 
+		{
+			float XPWorth = 2,
+			string DeathText = "+2xp",
+			float MaxHealth = 8,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 25,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5693aea1feecbbde:enemywalk1",
+			string AttackAnimation = "5693aea9f0839f01:enemyattk1",
+			float AttackDuration = 1,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 51,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56608f711ae6affd:EnemyMelee",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [12.6552162, -6.85943794, 3.81469727e-006],
+			Vec3 Scale = [1.5, 1.5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5693aea1feecbbde:enemywalk1",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Clickable = 
+		{
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.349999994, 0.5, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 8,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = true,
+			float DetectionRadius = 1.5,
+			float Damage = 2.5,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 1.25,
+		},
+		Health = 
+		{
+			float XPWorth = 2,
+			string DeathText = "+2xp",
+			float MaxHealth = 8,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 25,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5693aea1feecbbde:enemywalk1",
+			string AttackAnimation = "5693aea9f0839f01:enemyattk1",
+			float AttackDuration = 1,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 52,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56608f711ae6affd:EnemyMelee",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-12.5714111, -5.28094959, 3.81469727e-006],
+			Vec3 Scale = [1.5, 1.5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5693aea1feecbbde:enemywalk1",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Clickable = 
+		{
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.349999994, 0.5, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 8,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = true,
+			float DetectionRadius = 1.5,
+			float Damage = 2.5,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 1.25,
+		},
+		Health = 
+		{
+			float XPWorth = 2,
+			string DeathText = "+2xp",
+			float MaxHealth = 8,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 25,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5693aea1feecbbde:enemywalk1",
+			string AttackAnimation = "5693aea9f0839f01:enemyattk1",
+			float AttackDuration = 1,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 53,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56608f711ae6affd:EnemyMelee",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [15.1586266, -5.54706287, 3.81469727e-006],
+			Vec3 Scale = [1.5, 1.5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5693aea1feecbbde:enemywalk1",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Clickable = 
+		{
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.349999994, 0.5, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 8,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = true,
+			float DetectionRadius = 1.5,
+			float Damage = 2.5,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 1.25,
+		},
+		Health = 
+		{
+			float XPWorth = 2,
+			string DeathText = "+2xp",
+			float MaxHealth = 8,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 25,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5693aea1feecbbde:enemywalk1",
+			string AttackAnimation = "5693aea9f0839f01:enemyattk1",
+			float AttackDuration = 1,
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "56608940fb8a1d0d:EnemyRanged",
+		LinkId = 
+		{
+			uint Id = 54,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [29.4699173, -11.7949991, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "RangedEnemy",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "56608940fb8a1d0d:EnemyRanged",
+		LinkId = 
+		{
+			uint Id = 55,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [29.8091335, -21.5971203, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "RangedEnemy",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "56608940fb8a1d0d:EnemyRanged",
+		LinkId = 
+		{
+			uint Id = 56,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-27.4045715, -12.421627, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "RangedEnemy",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "56608940fb8a1d0d:EnemyRanged",
+		LinkId = 
+		{
+			uint Id = 57,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-27.0760803, -20.039217, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "RangedEnemy",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 58,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56608f711ae6affd:EnemyMelee",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [27.7685223, -18.0341091, 0],
+			Vec3 Scale = [1.5, 1.5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5693aea1feecbbde:enemywalk1",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Clickable = 
+		{
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.349999994, 0.5, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 8,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = true,
+			float DetectionRadius = 1.5,
+			float Damage = 2.5,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 1.25,
+		},
+		Health = 
+		{
+			float XPWorth = 2,
+			string DeathText = "+2xp",
+			float MaxHealth = 8,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 25,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5693aea1feecbbde:enemywalk1",
+			string AttackAnimation = "5693aea9f0839f01:enemyattk1",
+			float AttackDuration = 1,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 59,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56608f711ae6affd:EnemyMelee",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-28.5542679, -18.0341091, 0],
+			Vec3 Scale = [1.5, 1.5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5693aea1feecbbde:enemywalk1",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Clickable = 
+		{
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.349999994, 0.5, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 8,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = true,
+			float DetectionRadius = 1.5,
+			float Damage = 2.5,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 1.25,
+		},
+		Health = 
+		{
+			float XPWorth = 2,
+			string DeathText = "+2xp",
+			float MaxHealth = 8,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 25,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5693aea1feecbbde:enemywalk1",
+			string AttackAnimation = "5693aea9f0839f01:enemyattk1",
+			float AttackDuration = 1,
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "567fd3ed5e822941:hubtable",
+		LinkId = 
+		{
+			uint Id = 60,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-31.9345169, -60.8071594, 0],
+			Vec3 Scale = [2.08497238, 2.92613816, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Table",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "567fd3ed5e822941:hubtable",
+		LinkId = 
+		{
+			uint Id = 61,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [30.3480873, -60.6984901, 0],
+			Vec3 Scale = [2.08497238, 2.92613816, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Table",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 62,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56608f711ae6affd:EnemyMelee",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-24.869297, -57.5463142, 0],
+			Vec3 Scale = [1.5, 1.5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5693aea1feecbbde:enemywalk1",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Clickable = 
+		{
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.349999994, 0.5, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 8,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = true,
+			float DetectionRadius = 1.5,
+			float Damage = 2.5,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 1.25,
+		},
+		Health = 
+		{
+			float XPWorth = 2,
+			string DeathText = "+2xp",
+			float MaxHealth = 8,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 25,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5693aea1feecbbde:enemywalk1",
+			string AttackAnimation = "5693aea9f0839f01:enemyattk1",
+			float AttackDuration = 1,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 63,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56608f711ae6affd:EnemyMelee",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-24.869297, -59.9376183, 0],
+			Vec3 Scale = [1.5, 1.5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5693aea1feecbbde:enemywalk1",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Clickable = 
+		{
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.349999994, 0.5, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 8,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = true,
+			float DetectionRadius = 1.5,
+			float Damage = 2.5,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 1.25,
+		},
+		Health = 
+		{
+			float XPWorth = 2,
+			string DeathText = "+2xp",
+			float MaxHealth = 8,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 25,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5693aea1feecbbde:enemywalk1",
+			string AttackAnimation = "5693aea9f0839f01:enemyattk1",
+			float AttackDuration = 1,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 64,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56608f711ae6affd:EnemyMelee",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-24.869297, -62.5463142, 0],
+			Vec3 Scale = [1.5, 1.5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5693aea1feecbbde:enemywalk1",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Clickable = 
+		{
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.349999994, 0.5, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 8,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = true,
+			float DetectionRadius = 1.5,
+			float Damage = 2.5,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 1.25,
+		},
+		Health = 
+		{
+			float XPWorth = 2,
+			string DeathText = "+2xp",
+			float MaxHealth = 8,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 25,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5693aea1feecbbde:enemywalk1",
+			string AttackAnimation = "5693aea9f0839f01:enemyattk1",
+			float AttackDuration = 1,
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "56608940fb8a1d0d:EnemyRanged",
+		LinkId = 
+		{
+			uint Id = 65,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [24.0437393, -63.415905, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "RangedEnemy",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "56608940fb8a1d0d:EnemyRanged",
+		LinkId = 
+		{
+			uint Id = 66,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [23.9350433, -56.8941612, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "RangedEnemy",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "56608940fb8a1d0d:EnemyRanged",
+		LinkId = 
+		{
+			uint Id = 67,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [23.9350433, -60.1550407, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "RangedEnemy",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "56608940fb8a1d0d:EnemyRanged",
+		LinkId = 
+		{
+			uint Id = 68,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-13.782341, -127.539253, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "RangedEnemy",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "56608940fb8a1d0d:EnemyRanged",
+		LinkId = 
+		{
+			uint Id = 69,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-22.817091, -127.539253, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "RangedEnemy",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "56608940fb8a1d0d:EnemyRanged",
+		LinkId = 
+		{
+			uint Id = 70,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-31.5604, -127.539253, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "RangedEnemy",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "56608940fb8a1d0d:EnemyRanged",
+		LinkId = 
+		{
+			uint Id = 71,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-41.0323219, -127.539253, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "RangedEnemy",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 72,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56608f711ae6affd:EnemyMelee",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-18.0347538, -127.441414, 0],
+			Vec3 Scale = [1.5, 1.5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5693aea1feecbbde:enemywalk1",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Clickable = 
+		{
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.349999994, 0.5, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 8,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = true,
+			float DetectionRadius = 1.5,
+			float Damage = 2.5,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 1.25,
+		},
+		Health = 
+		{
+			float XPWorth = 2,
+			string DeathText = "+2xp",
+			float MaxHealth = 8,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 25,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5693aea1feecbbde:enemywalk1",
+			string AttackAnimation = "5693aea9f0839f01:enemyattk1",
+			float AttackDuration = 1,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 73,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56608f711ae6affd:EnemyMelee",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-26.9237843, -127.441414, 0],
+			Vec3 Scale = [1.5, 1.5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5693aea1feecbbde:enemywalk1",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Clickable = 
+		{
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.349999994, 0.5, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 8,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = true,
+			float DetectionRadius = 1.5,
+			float Damage = 2.5,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 1.25,
+		},
+		Health = 
+		{
+			float XPWorth = 2,
+			string DeathText = "+2xp",
+			float MaxHealth = 8,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 25,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5693aea1feecbbde:enemywalk1",
+			string AttackAnimation = "5693aea9f0839f01:enemyattk1",
+			float AttackDuration = 1,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 74,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56608f711ae6affd:EnemyMelee",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-35.1570663, -127.514275, 0],
+			Vec3 Scale = [1.5, 1.5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5693aea1feecbbde:enemywalk1",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Clickable = 
+		{
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.349999994, 0.5, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 8,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = true,
+			float DetectionRadius = 1.5,
+			float Damage = 2.5,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 1.25,
+		},
+		Health = 
+		{
+			float XPWorth = 2,
+			string DeathText = "+2xp",
+			float MaxHealth = 8,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 25,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5693aea1feecbbde:enemywalk1",
+			string AttackAnimation = "5693aea9f0839f01:enemyattk1",
+			float AttackDuration = 1,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 75,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56608f711ae6affd:EnemyMelee",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-9, -127.414101, 0],
+			Vec3 Scale = [1.5, 1.5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5693aea1feecbbde:enemywalk1",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Clickable = 
+		{
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.349999994, 0.5, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 8,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = true,
+			float DetectionRadius = 1.5,
+			float Damage = 2.5,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 1.25,
+		},
+		Health = 
+		{
+			float XPWorth = 2,
+			string DeathText = "+2xp",
+			float MaxHealth = 8,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 25,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5693aea1feecbbde:enemywalk1",
+			string AttackAnimation = "5693aea9f0839f01:enemyattk1",
+			float AttackDuration = 1,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 76,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56608f711ae6affd:EnemyMelee",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [27.6490364, -127.441414, 0],
+			Vec3 Scale = [1.5, 1.5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5693aea1feecbbde:enemywalk1",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Clickable = 
+		{
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.349999994, 0.5, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 8,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = true,
+			float DetectionRadius = 1.5,
+			float Damage = 2.5,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 1.25,
+		},
+		Health = 
+		{
+			float XPWorth = 2,
+			string DeathText = "+2xp",
+			float MaxHealth = 8,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 25,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5693aea1feecbbde:enemywalk1",
+			string AttackAnimation = "5693aea9f0839f01:enemyattk1",
+			float AttackDuration = 1,
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "56608940fb8a1d0d:EnemyRanged",
+		LinkId = 
+		{
+			uint Id = 77,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [23.0124207, -127.539253, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "RangedEnemy",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 78,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56608f711ae6affd:EnemyMelee",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [36.6707764, -127.578804, 0],
+			Vec3 Scale = [1.5, 1.5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5693aea1feecbbde:enemywalk1",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Clickable = 
+		{
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.349999994, 0.5, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 8,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = true,
+			float DetectionRadius = 1.5,
+			float Damage = 2.5,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 1.25,
+		},
+		Health = 
+		{
+			float XPWorth = 2,
+			string DeathText = "+2xp",
+			float MaxHealth = 8,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 25,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5693aea1feecbbde:enemywalk1",
+			string AttackAnimation = "5693aea9f0839f01:enemyattk1",
+			float AttackDuration = 1,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 79,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56608f711ae6affd:EnemyMelee",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [19.4157543, -127.514275, 0],
+			Vec3 Scale = [1.5, 1.5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5693aea1feecbbde:enemywalk1",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Clickable = 
+		{
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.349999994, 0.5, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 8,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = true,
+			float DetectionRadius = 1.5,
+			float Damage = 2.5,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 1.25,
+		},
+		Health = 
+		{
+			float XPWorth = 2,
+			string DeathText = "+2xp",
+			float MaxHealth = 8,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 25,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5693aea1feecbbde:enemywalk1",
+			string AttackAnimation = "5693aea9f0839f01:enemyattk1",
+			float AttackDuration = 1,
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "56608940fb8a1d0d:EnemyRanged",
+		LinkId = 
+		{
+			uint Id = 80,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [13.5404987, -127.539253, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "RangedEnemy",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 81,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56608f711ae6affd:EnemyMelee",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [8.36955929, -127.441414, 0],
+			Vec3 Scale = [1.5, 1.5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5693aea1feecbbde:enemywalk1",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Clickable = 
+		{
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.349999994, 0.5, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 8,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = true,
+			float DetectionRadius = 1.5,
+			float Damage = 2.5,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 1.25,
+		},
+		Health = 
+		{
+			float XPWorth = 2,
+			string DeathText = "+2xp",
+			float MaxHealth = 8,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 25,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5693aea1feecbbde:enemywalk1",
+			string AttackAnimation = "5693aea9f0839f01:enemyattk1",
+			float AttackDuration = 1,
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "56608940fb8a1d0d:EnemyRanged",
+		LinkId = 
+		{
+			uint Id = 82,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [31.7557297, -127.539253, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "RangedEnemy",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "56608940fb8a1d0d:EnemyRanged",
+		LinkId = 
+		{
+			uint Id = 83,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [42.6252937, -127.539253, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "RangedEnemy",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 84,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56851aef6b5a765b:BossMelee2",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-1.90221941, -59.3858719, 3.81469727e-006],
+			Vec3 Scale = [3, 3, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5693a1e3cf06e6f1:bossmeleestand",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Orientation = 
+		{
+			Vec3 GlobalUp = [0, 0, 1],
+			Vec3 UpVector = [0, 0, 1],
+			Vec3 ForwardVector = [1, 0, 0],
+			OrientationBases DefaultBases = ForwardXUpZ,
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, -0.119999997, 0],
+			Vec3 Size = [0.300000012, 0.400000006, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 12,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = true,
+			float DetectionRadius = 3,
+			float Damage = 10,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 3,
+		},
+		Health = 
+		{
+			float XPWorth = 30,
+			string DeathText = "+30xp",
+			float MaxHealth = 60,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 50,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		Clickable = 
+		{
+		},
+		AllowAdvancement = 
+		{
+			string DoorName = "left",
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5693a1e3cf06e6f1:bossmeleestand",
+			string AttackAnimation = "5693a1e0cf12a58b:bossmeleeattk",
+			float AttackDuration = 1,
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "568525d693d4fa44:EnemyRanged2",
+		LinkId = 
+		{
+			uint Id = 85,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0.0678701401, -53.6715889, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "RangedEnemy",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "568525d693d4fa44:EnemyRanged2",
+		LinkId = 
+		{
+			uint Id = 86,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0.0678701401, -66.2430191, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "RangedEnemy",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "568525d693d4fa44:EnemyRanged2",
+		LinkId = 
+		{
+			uint Id = 87,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-6.78927517, -60.1001587, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "RangedEnemy",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "568525d693d4fa44:EnemyRanged2",
+		LinkId = 
+		{
+			uint Id = 88,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [8.35358047, -60.1001587, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "RangedEnemy",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "568525d693d4fa44:EnemyRanged2",
+		LinkId = 
+		{
+			uint Id = 89,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [34.1043205, -153.97084, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "RangedEnemy",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "568525d693d4fa44:EnemyRanged2",
+		LinkId = 
+		{
+			uint Id = 90,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [24.4047222, -153.97084, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "RangedEnemy",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "568525d693d4fa44:EnemyRanged2",
+		LinkId = 
+		{
+			uint Id = 91,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [12.9626751, -153.97084, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "RangedEnemy",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "568525d693d4fa44:EnemyRanged2",
+		LinkId = 
+		{
+			uint Id = 92,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-32.2827682, -154.028931, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "RangedEnemy",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "568525d693d4fa44:EnemyRanged2",
+		LinkId = 
+		{
+			uint Id = 93,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-21.4796162, -154.028931, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "RangedEnemy",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "568525d693d4fa44:EnemyRanged2",
+		LinkId = 
+		{
+			uint Id = 94,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-11.3153658, -154.028931, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "RangedEnemy",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "56608940fb8a1d0d:EnemyRanged",
+		LinkId = 
+		{
+			uint Id = 95,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-0.845533252, -157.351639, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "RangedEnemy",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "56608940fb8a1d0d:EnemyRanged",
+		LinkId = 
+		{
+			uint Id = 96,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [1.91474152, -173.727982, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "RangedEnemy",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "56608940fb8a1d0d:EnemyRanged",
+		LinkId = 
+		{
+			uint Id = 97,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-0.475899935, -189.931015, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "RangedEnemy",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 98,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56608f711ae6affd:EnemyMelee",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0.495926499, -164.723373, 0],
+			Vec3 Scale = [1.5, 1.5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5693aea1feecbbde:enemywalk1",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Clickable = 
+		{
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.349999994, 0.5, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 8,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = true,
+			float DetectionRadius = 1.5,
+			float Damage = 2.5,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 1.25,
+		},
+		Health = 
+		{
+			float XPWorth = 2,
+			string DeathText = "+2xp",
+			float MaxHealth = 8,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 25,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5693aea1feecbbde:enemywalk1",
+			string AttackAnimation = "5693aea9f0839f01:enemyattk1",
+			float AttackDuration = 1,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 99,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56608f711ae6affd:EnemyMelee",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0.519223809, -183.959076, 0],
+			Vec3 Scale = [1.5, 1.5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5693aea1feecbbde:enemywalk1",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Clickable = 
+		{
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.349999994, 0.5, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 8,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = true,
+			float DetectionRadius = 1.5,
+			float Damage = 2.5,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 1.25,
+		},
+		Health = 
+		{
+			float XPWorth = 2,
+			string DeathText = "+2xp",
+			float MaxHealth = 8,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 25,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5693aea1feecbbde:enemywalk1",
+			string AttackAnimation = "5693aea9f0839f01:enemyattk1",
+			float AttackDuration = 1,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 100,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56608f711ae6affd:EnemyMelee",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0.454825044, -170.848633, 0],
+			Vec3 Scale = [1.5, 1.5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5693aea1feecbbde:enemywalk1",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Clickable = 
+		{
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.349999994, 0.5, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 8,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = true,
+			float DetectionRadius = 1.5,
+			float Damage = 2.5,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 1.25,
+		},
+		Health = 
+		{
+			float XPWorth = 2,
+			string DeathText = "+2xp",
+			float MaxHealth = 8,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 25,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5693aea1feecbbde:enemywalk1",
+			string AttackAnimation = "5693aea9f0839f01:enemyattk1",
+			float AttackDuration = 1,
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "5655983c7703178d:Health",
+		LinkId = 
+		{
+			uint Id = 101,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0.537983894, -154.266205, 3.81469727e-006],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Health",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 102,
+		},
+		Named = 
+		{
+			string Name = "Door",
+		},
+		Archetyped = 
+		{
+			string Name = "567fd41c5d9fa862:hubdoor",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0.580981851, -206.473114, 3.81469727e-006],
+			Vec3 Scale = [5, 3.29999995, 9.99999975e-005],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "567fd4c7311839f0:door000",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Checkpoint = 
+		{
+		},
+		DisappearOnCollision = 
+		{
+			bool IsActive = true,
+			string SoundEffect = "56b34d859e8193ec:Doo",
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.150000006, 0.5],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 103,
+		},
+		Named = 
+		{
+			string Name = "pewp",
+		},
+		Archetyped = 
+		{
+			string Name = "56b8373f240bef7a:bob",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0.494185448, -244.248566, 3.81469727e-006],
+			Vec3 Scale = [7, 4.72553205, 0.853428364],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		DoorLogic = 
+		{
+			int NumberOfEnemiesToOpenDoor = 6,
+			string SoundEffect = "",
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [0.289999843, 1, 0, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "567fd4c7311839f0:door000",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		DisappearOnCollision = 
+		{
+			bool IsActive = true,
+			string SoundEffect = "56b34d859e8193ec:Doo",
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.150000006, 0.5],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		Checkpoint = 
+		{
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 104,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56851aef6b5a765b:BossMelee2",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-9.20349216, -234.463181, 0],
+			Vec3 Scale = [3, 3, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5693a1e3cf06e6f1:bossmeleestand",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Orientation = 
+		{
+			Vec3 GlobalUp = [0, 0, 1],
+			Vec3 UpVector = [0, 0, 1],
+			Vec3 ForwardVector = [1, 0, 0],
+			OrientationBases DefaultBases = ForwardXUpZ,
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, -0.119999997, 0],
+			Vec3 Size = [0.300000012, 0.400000006, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 12,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = true,
+			float DetectionRadius = 3,
+			float Damage = 10,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 3,
+		},
+		Health = 
+		{
+			float XPWorth = 30,
+			string DeathText = "+30xp",
+			float MaxHealth = 60,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 50,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		Clickable = 
+		{
+		},
+		AllowAdvancement = 
+		{
+			string DoorName = "pewp",
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5693a1e3cf06e6f1:bossmeleestand",
+			string AttackAnimation = "5693a1e0cf12a58b:bossmeleeattk",
+			float AttackDuration = 1,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 105,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56851aef6b5a765b:BossMelee2",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [10.7969313, -234.463181, 0],
+			Vec3 Scale = [3, 3, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5693a1e3cf06e6f1:bossmeleestand",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Orientation = 
+		{
+			Vec3 GlobalUp = [0, 0, 1],
+			Vec3 UpVector = [0, 0, 1],
+			Vec3 ForwardVector = [1, 0, 0],
+			OrientationBases DefaultBases = ForwardXUpZ,
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, -0.119999997, 0],
+			Vec3 Size = [0.300000012, 0.400000006, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 12,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = true,
+			float DetectionRadius = 3,
+			float Damage = 10,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 3,
+		},
+		Health = 
+		{
+			float XPWorth = 30,
+			string DeathText = "+30xp",
+			float MaxHealth = 60,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 50,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		Clickable = 
+		{
+		},
+		AllowAdvancement = 
+		{
+			string DoorName = "pewp",
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5693a1e3cf06e6f1:bossmeleestand",
+			string AttackAnimation = "5693a1e0cf12a58b:bossmeleeattk",
+			float AttackDuration = 1,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 106,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56a2859e19b68ff2:BossRanged",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0.855200887, -224.287521, 0],
+			Vec3 Scale = [5, 5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5686e9323827c68e:staffwizstand",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Clickable = 
+		{
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [-0.0900000036, -0.0500000007, 0],
+			Vec3 Size = [0.165000007, 0.25, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 12,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = false,
+			float DetectionRadius = 5,
+			float Damage = 1,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 0.5,
+		},
+		Health = 
+		{
+			float XPWorth = 30,
+			string DeathText = "+30xp",
+			float MaxHealth = 75,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 50,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		AllowAdvancement = 
+		{
+			string DoorName = "pewp",
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5686e9323827c68e:staffwizstand",
+			string AttackAnimation = "5686e93c3a4edf97:staffwizattk",
+			float AttackDuration = 0.800000012,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 107,
+		},
+		Named = 
+		{
+			string Name = "Sprite",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, -128.036453, -20],
+			Vec3 Scale = [150, 340, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5686ef9254ab22aa:z061",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "56608940fb8a1d0d:EnemyRanged",
+		LinkId = 
+		{
+			uint Id = 108,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0.0508987904, -7.96306944, 0],
+			Vec3 Scale = [1.20000005, 1.29999995, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "RangedEnemy",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 109,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56851aef6b5a765b:BossMelee2",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-28.5715961, -36.4181328, 0],
+			Vec3 Scale = [3, 3, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5693a1e3cf06e6f1:bossmeleestand",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Orientation = 
+		{
+			Vec3 GlobalUp = [0, 0, 1],
+			Vec3 UpVector = [0, 0, 1],
+			Vec3 ForwardVector = [1, 0, 0],
+			OrientationBases DefaultBases = ForwardXUpZ,
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, -0.119999997, 0],
+			Vec3 Size = [0.300000012, 0.400000006, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 12,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = true,
+			float DetectionRadius = 3,
+			float Damage = 10,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 3,
+		},
+		Health = 
+		{
+			float XPWorth = 30,
+			string DeathText = "+30xp",
+			float MaxHealth = 60,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 50,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		Clickable = 
+		{
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5693a1e3cf06e6f1:bossmeleestand",
+			string AttackAnimation = "5693a1e0cf12a58b:bossmeleeattk",
+			float AttackDuration = 1,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 110,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56851aef6b5a765b:BossMelee2",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [28.7889919, -36.4181328, -0.000999450684],
+			Vec3 Scale = [3, 3, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5693a1e3cf06e6f1:bossmeleestand",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Orientation = 
+		{
+			Vec3 GlobalUp = [0, 0, 1],
+			Vec3 UpVector = [0, 0, 1],
+			Vec3 ForwardVector = [1, 0, 0],
+			OrientationBases DefaultBases = ForwardXUpZ,
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, -0.119999997, 0],
+			Vec3 Size = [0.300000012, 0.400000006, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 12,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = true,
+			float DetectionRadius = 3,
+			float Damage = 10,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 3,
+		},
+		Health = 
+		{
+			float XPWorth = 30,
+			string DeathText = "+30xp",
+			float MaxHealth = 60,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 50,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		Clickable = 
+		{
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5693a1e3cf06e6f1:bossmeleestand",
+			string AttackAnimation = "5693a1e0cf12a58b:bossmeleeattk",
+			float AttackDuration = 1,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 111,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56a2859e19b68ff2:BossRanged",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [1.7674228, -59.6090889, -0.000999450684],
+			Vec3 Scale = [5, 5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5686e9323827c68e:staffwizstand",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Clickable = 
+		{
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [-0.0900000036, -0.0500000007, 0],
+			Vec3 Size = [0.165000007, 0.25, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 12,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = false,
+			float DetectionRadius = 5,
+			float Damage = 1,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 0.5,
+		},
+		Health = 
+		{
+			float XPWorth = 30,
+			string DeathText = "+30xp",
+			float MaxHealth = 75,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 50,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		AllowAdvancement = 
+		{
+			string DoorName = "left",
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5686e9323827c68e:staffwizstand",
+			string AttackAnimation = "5686e93c3a4edf97:staffwizattk",
+			float AttackDuration = 0.800000012,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 112,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56851aef6b5a765b:BossMelee2",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-45.6323128, -150.043945, -0.000999450684],
+			Vec3 Scale = [3, 3, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5693a1e3cf06e6f1:bossmeleestand",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Orientation = 
+		{
+			Vec3 GlobalUp = [0, 0, 1],
+			Vec3 UpVector = [0, 0, 1],
+			Vec3 ForwardVector = [1, 0, 0],
+			OrientationBases DefaultBases = ForwardXUpZ,
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, -0.119999997, 0],
+			Vec3 Size = [0.300000012, 0.400000006, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 12,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = true,
+			float DetectionRadius = 3,
+			float Damage = 10,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 3,
+		},
+		Health = 
+		{
+			float XPWorth = 30,
+			string DeathText = "+30xp",
+			float MaxHealth = 60,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 50,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		Clickable = 
+		{
+		},
+		AllowAdvancement = 
+		{
+			string DoorName = "nob",
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5693a1e3cf06e6f1:bossmeleestand",
+			string AttackAnimation = "5693a1e0cf12a58b:bossmeleeattk",
+			float AttackDuration = 1,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 113,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56851aef6b5a765b:BossMelee2",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [48.2122841, -150.043945, -0.000999450684],
+			Vec3 Scale = [3, 3, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5693a1e3cf06e6f1:bossmeleestand",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Orientation = 
+		{
+			Vec3 GlobalUp = [0, 0, 1],
+			Vec3 UpVector = [0, 0, 1],
+			Vec3 ForwardVector = [1, 0, 0],
+			OrientationBases DefaultBases = ForwardXUpZ,
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, -0.119999997, 0],
+			Vec3 Size = [0.300000012, 0.400000006, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 12,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = true,
+			float DetectionRadius = 3,
+			float Damage = 10,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 3,
+		},
+		Health = 
+		{
+			float XPWorth = 30,
+			string DeathText = "+30xp",
+			float MaxHealth = 60,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 50,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		Clickable = 
+		{
+		},
+		AllowAdvancement = 
+		{
+			string DoorName = "nob",
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5693a1e3cf06e6f1:bossmeleestand",
+			string AttackAnimation = "5693a1e0cf12a58b:bossmeleeattk",
+			float AttackDuration = 1,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 114,
+		},
+		Named = 
+		{
+			string Name = "nob",
+		},
+		Archetyped = 
+		{
+			string Name = "56b8373f240bef7a:bob",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-37.4415741, -153.922791, -0.000999450684],
+			Vec3 Scale = [4.28450918, 3.89960647, 0.853428364],
+			Quat Rotation = [0, 0, 0.707106769, 0.707106769],
+		},
+		DoorLogic = 
+		{
+			int NumberOfEnemiesToOpenDoor = 1,
+			string SoundEffect = "",
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [0.289999843, 1, 0, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "567fd4c7311839f0:door000",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		DisappearOnCollision = 
+		{
+			bool IsActive = true,
+			string SoundEffect = "56b34d859e8193ec:Doo",
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.150000006, 0.5],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		Checkpoint = 
+		{
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 115,
+		},
+		Named = 
+		{
+			string Name = "nob",
+		},
+		Archetyped = 
+		{
+			string Name = "56b8373f240bef7a:bob",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [40.5584335, -153.922791, -0.000999450684],
+			Vec3 Scale = [4.28450918, 3.89960647, 0.853428364],
+			Quat Rotation = [0, 0, 0.707106769, 0.707106769],
+		},
+		DoorLogic = 
+		{
+			int NumberOfEnemiesToOpenDoor = 1,
+			string SoundEffect = "",
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [0.289999843, 1, 0, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "567fd4c7311839f0:door000",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		DisappearOnCollision = 
+		{
+			bool IsActive = true,
+			string SoundEffect = "56b34d859e8193ec:Doo",
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.150000006, 0.5],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		Checkpoint = 
+		{
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 116,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56a28623f50ecb8c:BossMelee",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [1.13777459, -234.566559, -0.000999450684],
+			Vec3 Scale = [2, 2, 9.99999975e-005],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5686e279b0389de9:darthvadorstand",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.449999988, 0.75, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 12,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = true,
+			float DetectionRadius = 3,
+			float Damage = 10,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 2.20000005,
+		},
+		Health = 
+		{
+			float XPWorth = 30,
+			string DeathText = "+30xp",
+			float MaxHealth = 100,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 50,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		Clickable = 
+		{
+		},
+		AllowAdvancement = 
+		{
+			string DoorName = "pewp",
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5686e279b0389de9:darthvadorstand",
+			string AttackAnimation = "5686e28a5eea22ea:darthvadorattk",
+			float AttackDuration = 1,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 117,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56a2859e19b68ff2:BossRanged",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-8.9209137, -224.156982, -0.000999450684],
+			Vec3 Scale = [5, 5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5686e9323827c68e:staffwizstand",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Clickable = 
+		{
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [-0.0900000036, -0.0500000007, 0],
+			Vec3 Size = [0.165000007, 0.25, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 12,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = false,
+			float DetectionRadius = 5,
+			float Damage = 1,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 0.5,
+		},
+		Health = 
+		{
+			float XPWorth = 30,
+			string DeathText = "+30xp",
+			float MaxHealth = 75,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 50,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		AllowAdvancement = 
+		{
+			string DoorName = "pewp",
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5686e9323827c68e:staffwizstand",
+			string AttackAnimation = "5686e93c3a4edf97:staffwizattk",
+			float AttackDuration = 0.800000012,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 118,
+		},
+		Named = 
+		{
+			string Name = "MeleeEnemy",
+		},
+		Archetyped = 
+		{
+			string Name = "56a2859e19b68ff2:BossRanged",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [10.3777351, -224.156982, -0.000999450684],
+			Vec3 Scale = [5, 5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5686e9323827c68e:staffwizstand",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Clickable = 
+		{
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [-0.0900000036, -0.0500000007, 0],
+			Vec3 Size = [0.165000007, 0.25, 0.5],
+		},
+		MovementVision = 
+		{
+			float Speed = 5,
+			float DetectionRadius = 12,
+		},
+		AttackVision = 
+		{
+			bool IsMelee = false,
+			float DetectionRadius = 5,
+			float Damage = 1,
+			string Projectile = "56573e9ae23f8d63:Bullet",
+			float CreateDistance = 1,
+			float Speed = 12,
+			float Cooldown = 0.5,
+		},
+		Health = 
+		{
+			float XPWorth = 30,
+			string DeathText = "+30xp",
+			float MaxHealth = 75,
+			string FoodToSpawn = "56950283f4120a1d:EnemyFood",
+			int FoodDropChance = 50,
+			float Shield = 1,
+			bool IsSpawned = true,
+		},
+		AllowAdvancement = 
+		{
+			string DoorName = "pewp",
+		},
+		EnemyAnimation = 
+		{
+			string MoveAnimation = "5686e9323827c68e:staffwizstand",
+			string AttackAnimation = "5686e93c3a4edf97:staffwizattk",
+			float AttackDuration = 0.800000012,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 119,
+		},
+		Named = 
+		{
+			string Name = "dick",
+		},
+		Archetyped = 
+		{
+			string Name = "56b8373f240bef7a:bob",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0.479305625, -124.996437, -0.000999450684],
+			Vec3 Scale = [7, 6, 0.853428364],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		DoorLogic = 
+		{
+			int NumberOfEnemiesToOpenDoor = 1,
+			string SoundEffect = "",
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [0.289999843, 1, 0, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "567fd4c7311839f0:door000",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		DisappearOnCollision = 
+		{
+			bool IsActive = true,
+			string SoundEffect = "56b34d859e8193ec:Doo",
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.150000006, 0.5],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		Checkpoint = 
+		{
+		},
+	},
+},

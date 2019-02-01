@@ -1,0 +1,104 @@
+class Experience : ZilchComponent
+{
+    var XPMax : Real = 20;
+    var XP : Real = 0;
+    var Level : Integer = 1;
+    [Property]
+    var HealthIncrease : Real;
+    [Property]
+    var SprintSpeedIncrease : Real;
+    [Property]
+    var SprintTimeIncrease : Real;
+    [Property]
+    var SurvivalTimeIncrease : Real;
+    [Property]
+    var DamageIncrease : Real;
+    [Property]
+    var CooldownDecrease : Real;
+    [Property]
+    var SoundEffect : SoundCue;
+    
+    var Player : Cog = null;
+    var TextBox : Cog = null;
+    var LevelText : Cog = null;
+    var TextRatio : Real;
+    var MaxRatio : Real;
+    var IsOver : Boolean = false;
+    var ExtraAmount : Real;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Player = this.Space.FindObjectByName("Player");
+        this.TextBox = this.Space.FindObjectByName("XPBar");
+        this.LevelText = this.Space.FindObjectByName("LevelText");
+        this.TextRatio = this.TextBox.Area.Size.X / this.XPMax;
+        this.MaxRatio = this.TextBox.Area.Size.X;
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.TextBox.Area.Size = Real2(this.TextRatio * this.XP, this.TextBox.Area.Size.Y);
+        this.LevelText.SpriteText.Text = "`this.Level`";
+        if (this.XP >= this.XPMax || Zero.Keyboard.KeyIsPressed(Keys.Zero))
+        {
+            this.LevelUp();
+        }
+    }
+    
+    function XPCurve()
+    {
+        this.XPMax = Math.Round(((this.XPMax * 1.1) + 20), 0);
+        this.TextRatio = this.MaxRatio / this.XPMax;
+        Console.WriteLine(this.XPMax);
+        if (this.IsOver)
+        {
+            this.XP += this.ExtraAmount;
+            this.IsOver = false;
+            this.ExtraAmount = 0;
+        }
+    }
+    
+    function LevelUp()
+    {
+        this.Space.SoundSpace.PlayCue(this.SoundEffect);
+        
+        this.Level += 1;
+        this.XP = 0;
+        this.XPCurve();
+        
+        this.Player.PlayerHealth.MaxHealth += this.HealthIncrease;
+        this.Player.PlayerHealth.CurrentHealth = this.Player.PlayerHealth.MaxHealth;
+        this.Player.PlayerHealth.TextRatio = this.Player.PlayerHealth.MaxRatio / this.Player.PlayerHealth.MaxHealth;
+        
+        if (this.Level < 10)
+        {
+            this.Player.PlayerMovement.SprintSpeed += this.SprintSpeedIncrease;
+            this.Player.PlayerMovement.OriginalSprintTime += this.SprintTimeIncrease;
+        }
+        this.Player.PlayerMovement.SprintTime = this.Player.PlayerMovement.OriginalSprintTime;
+        this.Player.PlayerMovement.TextRatio = this.Player.PlayerMovement.MaxRatio / this.Player.PlayerMovement.OriginalSprintTime;
+        
+        if (this.Level < 15)
+        {
+            Console.WriteLine(this.LevelSettings.Survival.InitialTime);
+            this.LevelSettings.Survival.InitialTime += this.SurvivalTimeIncrease;
+            this.LevelSettings.Survival.TextRatio = this.LevelSettings.Survival.MaxRatio / this.LevelSettings.Survival.InitialTime;
+            this.LevelSettings.Survival.SurvivalTime += this.SurvivalTimeIncrease;
+        }
+        
+        if (this.Player.PlayerShoot != null)
+        {
+            this.Player.PlayerShoot.Damage += this.DamageIncrease;
+            if (this.Level < 10)
+            {
+                this.Player.PlayerShoot.Cooldown -= this.CooldownDecrease;
+            }
+        }
+        if (this.Player.PlayerMelee != null)
+        {
+            this.Player.PlayerMelee.Damage += this.DamageIncrease;
+        }
+    }
+}

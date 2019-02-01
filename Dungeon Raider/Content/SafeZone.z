@@ -1,0 +1,39 @@
+class SafeZone : ZilchComponent
+{
+    [Property]
+    var IsHealing : Boolean = false;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionPersisted);
+    }
+    
+    function OnCollisionPersisted(event : CollisionEvent)
+    {
+        if (event.OtherObject.Health != null)
+        {
+            event.OtherObject.Destroy();
+            this.LevelSettings.SpawnEnemies.NumberSpawned -= 1;
+        }
+        if (event.OtherObject.CollisionDamage != null)
+        {
+            if (event.OtherObject.CollisionDamage.DamagePlayer == true)
+            {
+                event.OtherObject.Destroy();
+            }
+        }
+        if (event.OtherObject.PlayerHealth != null
+        && this.IsHealing)
+        {
+            if (event.OtherObject.PlayerHealth.CurrentHealth < 
+            event.OtherObject.PlayerHealth.MaxHealth)
+            {
+                event.OtherObject.PlayerHealth.CurrentHealth += 0.0166667;
+            }
+            if (this.LevelSettings.Survival.SurvivalTime <
+            this.LevelSettings.Survival.InitialTime)
+            {
+                this.LevelSettings.Survival.SurvivalTime += 0.0500001;
+            }
+        }
+    }
+}

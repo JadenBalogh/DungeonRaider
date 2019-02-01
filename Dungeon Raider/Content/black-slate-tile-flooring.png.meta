@@ -1,0 +1,20 @@
+ImageContent = 
+{
+	SpriteSourceBuilder = 
+	{
+		string Name = "black-slate-tile-flooring",
+		uint64 ResourceId = 56b877f30051d8d1,
+		uint64 AtlasId = 5274cf95e4a661fd,
+		uint FrameSizeX = 1531,
+		uint FrameSizeY = 1529,
+		uint FrameCount = 1,
+		float FrameDelay = 0.0833333358,
+		float OriginX = 765,
+		float OriginY = 764,
+		float PixelsPerUnit = 768,
+		bool Smoothing = true,
+		bool Looping = true,
+		Vec4 Slices = [0, 0, 0, 0],
+		SpriteFill Fill = Stretch,
+	},
+},

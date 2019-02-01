@@ -1,0 +1,33 @@
+class DoorLogic : ZilchComponent
+{
+    [Property]
+    var NumberOfEnemiesToOpenDoor : Integer;
+    [Property]
+    var SoundEffect : SoundCue;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var playerCanAdvance = false;
+        
+        if (this.NumberOfEnemiesToOpenDoor <= 0)
+        {
+            playerCanAdvance = true;
+            this.Space.SoundSpace.PlayCue(this.SoundEffect);
+        }
+        
+        if (playerCanAdvance)
+        {
+            this.Owner.BoxCollider.Ghost = true;
+            this.Owner.DisappearOnCollision.IsActive = true;
+        }
+        else
+        {
+            this.Owner.BoxCollider.Ghost = false;
+        }
+    }
+}

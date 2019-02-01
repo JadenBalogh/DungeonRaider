@@ -1,0 +1,20 @@
+ImageContent = 
+{
+	SpriteSourceBuilder = 
+	{
+		string Name = "Seamless_DEad_Grass[2_",
+		uint64 ResourceId = 56b876664a705e12,
+		uint64 AtlasId = 5274cf95e4a661fd,
+		uint FrameSizeX = 1024,
+		uint FrameSizeY = 1024,
+		uint FrameCount = 1,
+		float FrameDelay = 0.0833333358,
+		float OriginX = 512,
+		float OriginY = 512,
+		float PixelsPerUnit = 960,
+		bool Smoothing = true,
+		bool Looping = true,
+		Vec4 Slices = [0, 0, 0, 0],
+		SpriteFill Fill = Stretch,
+	},
+},

@@ -1,0 +1,20 @@
+ImageContent = 
+{
+	SpriteSourceBuilder = 
+	{
+		string Name = "oceantile",
+		uint64 ResourceId = 565d86ac3e4ea47a,
+		uint64 AtlasId = 5274cf95e4a661fd,
+		uint FrameSizeX = 426,
+		uint FrameSizeY = 404,
+		uint FrameCount = 1,
+		float FrameDelay = 0.0833333358,
+		float OriginX = 213,
+		float OriginY = 202,
+		float PixelsPerUnit = 390,
+		bool Smoothing = true,
+		bool Looping = true,
+		Vec4 Slices = [0, 0, 0, 0],
+		SpriteFill Fill = Stretch,
+	},
+},

@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "AllowAdvancement",
+		uint64 ResourceId = 569b80781fb0b71c,
+	},
+},

@@ -1,0 +1,8 @@
+FontContent = 
+{
+	FontBuilder = 
+	{
+		string Name = "8bitOperatorPlus-Bold",
+		uint64 ResourceId = 5640fa19f635eb28,
+	},
+},

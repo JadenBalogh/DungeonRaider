@@ -1,0 +1,8 @@
+FontContent = 
+{
+	FontBuilder = 
+	{
+		string Name = "Bitter-Bold",
+		uint64 ResourceId = 5640f574d56c0900,
+	},
+},

@@ -1,0 +1,8 @@
+FontContent = 
+{
+	FontBuilder = 
+	{
+		string Name = "KOMIKAX_",
+		uint64 ResourceId = 5640f502bbf499cb,
+	},
+},

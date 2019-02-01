@@ -1,0 +1,57 @@
+class PlayerShoot : ZilchComponent
+{
+    [Property]
+    var Shoot : MouseButtons;
+    [Property]
+    var Projectile : Archetype = null;
+    [Property]
+    var Damage : Real;
+    [Property]
+    var Range : Real;
+    [Property]
+    var CreateDistance : Real = 1.0;
+    [Property]
+    var Speed : Real;
+    [Property] 
+    var Cooldown : Real;
+    [Property]
+    var SoundEffect : SoundCue;
+    
+    var TimeSinceLast : Real = 0.0;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.TimeSinceLast > 0.0)
+        {
+            this.TimeSinceLast -= event.Dt;
+        }
+        
+        if (this.TimeSinceLast <= 0)
+        {
+            var direction = this.Owner.Orientation.WorldForward;
+            direction = Math.Normalize(direction);
+            
+            var position = this.Owner.Transform.WorldTranslation + (direction * this.CreateDistance);
+            
+            var projectile : Cog = null;
+            
+            if (Zero.Mouse.IsButtonDown(this.Shoot))
+            {
+                projectile = this.Space.CreateAtPosition(this.Projectile, position);
+                this.Space.SoundSpace.PlayCue(this.SoundEffect);
+                this.TimeSinceLast = this.Cooldown;
+            }
+            
+            if (projectile != null)
+            {
+                projectile.RigidBody.Velocity = direction * this.Speed;
+                projectile.CollisionDamage.Damage = this.Damage;
+            }
+        }
+    }
+}

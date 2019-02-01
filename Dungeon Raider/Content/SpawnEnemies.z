@@ -1,0 +1,144 @@
+class SpawnEnemies : ZilchComponent
+{
+    [Property]
+    var StartPoint : Real3;
+    [Property]
+    var SafeRadius : Real = 1.0;
+    [Property]
+    var NorthBoundary : Real = 1.0;
+    [Property]
+    var SouthBoundary : Real = 1.0;
+    [Property]
+    var WestBoundary : Real = 1.0;
+    [Property]
+    var EastBoundary : Real = 1.0;
+    [Property]
+    var MaxSpawns : Real = 5.0;
+    var NumberSpawned : Real;
+    [Property]
+    var EnemyToSpawn1 : Archetype = null;
+    [Property]
+    var ChanceToSpawn1 : Real;
+    [Property]
+    var EnemyToSpawn2 : Archetype = null;
+    [Property]
+    var ChanceToSpawn2 : Real;
+    [Property]
+    var EnemyToSpawn3 : Archetype = null;
+    [Property]
+    var ChanceToSpawn3 : Real;
+    [Property] 
+    var EnemyToSpawn4 : Archetype = null;
+    [Property]
+    var ChanceToSpawn4 : Real;
+    [Property]
+    var SpawnInterval : Real = 1.0;
+    var TimeSinceLast : Real;
+    
+    var Player : Cog = null;
+    var SpawnedEnemy : Cog = null;
+    var DistAway : Real;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Player = this.Space.FindObjectByName("Player");
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.TimeSinceLast > 0.0)
+        {
+            this.TimeSinceLast -= event.Dt;
+        }
+        
+        if (this.TimeSinceLast <= 0)
+        {
+            this.Spawn();
+            this.TimeSinceLast = this.SpawnInterval;
+        }
+    }
+    
+    function Spawn()
+    {
+        //Console.WriteLine("~~~");
+        var randNumGen = new Random();
+        var randPosX = this.StartPoint.X + randNumGen.Range(this.WestBoundary * -1, this.EastBoundary);
+        //Console.WriteLine("PosX = `randPosX`");
+        
+        var randPosY = this.StartPoint.Y + randNumGen.Range(this.NorthBoundary, this.SouthBoundary * -1);
+        //Console.WriteLine("PosY = `randPosY`");
+        
+        var spawnPos = Real3(randPosX, randPosY, 0.0);
+        
+        var randType = randNumGen.DieRoll(100);
+        
+        var enemy : Cog = null;
+        
+        if (randType <= this.ChanceToSpawn1)
+        {
+            enemy = this.Space.CreateAtPosition(this.EnemyToSpawn1, spawnPos);
+        }
+        else if (randType >= this.ChanceToSpawn1 
+        && randType <= 
+        (this.ChanceToSpawn1 
+        + this.ChanceToSpawn2))
+        {
+            enemy = this.Space.CreateAtPosition(this.EnemyToSpawn2, spawnPos);
+        }
+        else if (randType >= this.ChanceToSpawn2 
+        && randType <= 
+        (this.ChanceToSpawn1 
+        + this.ChanceToSpawn2 
+        + this.ChanceToSpawn3))
+        {
+            enemy = this.Space.CreateAtPosition(this.EnemyToSpawn3, spawnPos);
+        }
+        else if (randType >= this.ChanceToSpawn3 
+        && randType <= 
+        (this.ChanceToSpawn1 
+        + this.ChanceToSpawn2 
+        + this.ChanceToSpawn3
+        + this.ChanceToSpawn4))
+        {
+            enemy = this.Space.CreateAtPosition(this.EnemyToSpawn4, spawnPos);
+        }
+        //Console.WriteLine("Enemy Type = `enemy.Name`");
+        
+        if (enemy != null)
+        {
+            this.GetDist(this.Player, enemy);
+            
+            //Console.WriteLine("Distance away from player = `this.DistAway`");
+            
+            if (this.DistAway <= this.SafeRadius || this.NumberSpawned >= this.MaxSpawns)
+            {
+                enemy.Destroy();
+                if (this.DistAway <= this.SafeRadius)
+                {
+                    //Console.WriteLine("Too Close");
+                }
+                if (this.NumberSpawned >= this.MaxSpawns)
+                {
+                    //Console.WriteLine("Too Many");
+                }
+            }
+            else
+            {
+                this.NumberSpawned += 1;
+            }
+            
+            //Console.WriteLine("Number spawned = `this.NumberSpawned`");
+        }
+        
+        //Console.WriteLine("~~~");
+    }
+    
+    function GetDist(player : Cog, enemy : Cog)
+    {
+        //Square root((x2-x1)^2 + (y2-y1)^2) = Resultant distance from the owner to the player
+        this.DistAway = Math.Sqrt((Math.Pow((player.Transform.Translation.X - enemy.Transform.Translation.X), 2)) 
+        + (Math.Pow((player.Transform.Translation.Y - enemy.Transform.Translation.Y), 2)));
+    }
+}

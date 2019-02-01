@@ -1,0 +1,20 @@
+ImageContent = 
+{
+	SpriteSourceBuilder = 
+	{
+		string Name = "darthvadorattk",
+		uint64 ResourceId = 5686e28a5eea22ea,
+		uint64 AtlasId = 5274cf95e4a661fd,
+		uint FrameSizeX = 193,
+		uint FrameSizeY = 196,
+		uint FrameCount = 1,
+		float FrameDelay = 0.0833333358,
+		float OriginX = 96,
+		float OriginY = 98,
+		float PixelsPerUnit = 128,
+		bool Smoothing = false,
+		bool Looping = true,
+		Vec4 Slices = [0, 0, 0, 0],
+		SpriteFill Fill = Stretch,
+	},
+},

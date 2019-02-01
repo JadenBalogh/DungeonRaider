@@ -1,0 +1,28 @@
+class Range : ZilchComponent
+{
+    var Player : Cog = null;
+    var DistAway : Real;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Player = this.Space.FindObjectByName("Player");
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.GetDist();
+        if (this.DistAway >= this.Player.PlayerShoot.Range)
+        {
+            this.Owner.Destroy();
+        }
+    }
+    
+    function GetDist()
+    {
+        //Square root((x2-x1)^2 + (y2-y1)^2) = Resultant distance from the owner to the player
+        this.DistAway = Math.Sqrt((Math.Pow((this.Player.Transform.Translation.X - this.Owner.Transform.Translation.X), 2)) 
+        + (Math.Pow((this.Player.Transform.Translation.Y - this.Owner.Transform.Translation.Y), 2)));
+    }
+}

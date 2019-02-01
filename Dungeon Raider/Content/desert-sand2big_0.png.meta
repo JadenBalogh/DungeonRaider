@@ -1,0 +1,20 @@
+ImageContent = 
+{
+	SpriteSourceBuilder = 
+	{
+		string Name = "desert-sand2big_0",
+		uint64 ResourceId = 567ca6372840a009,
+		uint64 AtlasId = 5274cf95e4a661fd,
+		uint FrameSizeX = 192,
+		uint FrameSizeY = 192,
+		uint FrameCount = 1,
+		float FrameDelay = 0.0833333358,
+		float OriginX = 96,
+		float OriginY = 96,
+		float PixelsPerUnit = 128,
+		bool Smoothing = true,
+		bool Looping = true,
+		Vec4 Slices = [0, 0, 0, 0],
+		SpriteFill Fill = Stretch,
+	},
+},

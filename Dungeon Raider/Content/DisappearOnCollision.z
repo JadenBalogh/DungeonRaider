@@ -1,0 +1,43 @@
+class DisappearOnCollision : ZilchComponent
+{
+    [Property]
+    var IsActive : Boolean;
+    [Property]
+    var SoundEffect : SoundCue;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        
+        Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionPersisted);
+        
+        Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
+        
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+    
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        this.Space.SoundSpace.PlayCue(this.SoundEffect);
+    }
+    
+    function OnCollisionPersisted(event : CollisionEvent)
+    {
+        if (this.IsActive)
+        {
+            this.Owner.Sprite.Visible = false;
+        }
+    }
+    
+    function OnCollisionEnded(event : CollisionEvent)
+    {
+        if (this.IsActive)
+        {
+            this.Owner.Sprite.Visible = true;
+        }
+    }
+}

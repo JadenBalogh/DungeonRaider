@@ -1,0 +1,20 @@
+ImageContent = 
+{
+	SpriteSourceBuilder = 
+	{
+		string Name = "staffwizstand",
+		uint64 ResourceId = 5686e9323827c68e,
+		uint64 AtlasId = 5274cf95e4a661fd,
+		uint FrameSizeX = 27,
+		uint FrameSizeY = 28,
+		uint FrameCount = 1,
+		float FrameDelay = 0.333333343,
+		float OriginX = 13,
+		float OriginY = 14,
+		float PixelsPerUnit = 50,
+		bool Smoothing = false,
+		bool Looping = true,
+		Vec4 Slices = [0, 0, 0, 0],
+		SpriteFill Fill = Stretch,
+	},
+},

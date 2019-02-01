@@ -1,0 +1,33 @@
+class MusicLogic : ZilchComponent
+{
+    [Property]
+    var BackgroundMusicObject : Archetype = null;
+    var Pos : Real3 = Real3(0, 0, 0);
+    [Property] 
+    var Persists : Boolean = false;
+    
+    function Initialize(init : CogInitializer)
+    {
+        var backgroundMusicObject : Cog = this.Space.FindObjectByName("MusicBox");
+        Console.WriteLine(backgroundMusicObject);
+        
+        if (backgroundMusicObject == null)
+        {
+            Console.WriteLine(backgroundMusicObject);
+            backgroundMusicObject = this.Space.CreateAtPosition(this.BackgroundMusicObject, this.Pos);
+            backgroundMusicObject.SimpleSound.Play();
+        }
+        if (this.Persists)
+        {
+            if (backgroundMusicObject != null)
+            {
+                Console.WriteLine(backgroundMusicObject);
+                backgroundMusicObject.Persistent = true;
+            }
+        }
+        else
+        {
+            backgroundMusicObject.Persistent = false;
+        }
+    }
+}

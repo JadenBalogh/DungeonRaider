@@ -1,0 +1,8 @@
+FontContent = 
+{
+	FontBuilder = 
+	{
+		string Name = "johnnytorchexpand",
+		uint64 ResourceId = 5640f559ac11b326,
+	},
+},

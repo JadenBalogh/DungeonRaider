@@ -1,0 +1,20 @@
+ImageContent = 
+{
+	SpriteSourceBuilder = 
+	{
+		string Name = "wizardsideattk0",
+		uint64 ResourceId = 566c9b99f614dcc0,
+		uint64 AtlasId = 5274cf95e4a661fd,
+		uint FrameSizeX = 60,
+		uint FrameSizeY = 60,
+		uint FrameCount = 1,
+		float FrameDelay = 0.181818187,
+		float OriginX = 30,
+		float OriginY = 30,
+		float PixelsPerUnit = 40,
+		bool Smoothing = false,
+		bool Looping = true,
+		Vec4 Slices = [0, 0, 0, 0],
+		SpriteFill Fill = Stretch,
+	},
+},

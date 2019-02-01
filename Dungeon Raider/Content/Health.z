@@ -1,0 +1,63 @@
+class Health : ZilchComponent
+{
+    [Property]
+    var XPWorth : Real = 5.0;
+    [Property]
+    var DeathText : String;
+    [Property]
+    var MaxHealth : Real = 5.0;
+    [Property]
+    var FoodToSpawn : Archetype = null;
+    [Property]
+    var FoodDropChance : Integer = 100;
+    var CurrentHealth : Real;
+    [Property]
+    var Shield : Real = 1.0;
+    [Property]
+    var IsSpawned : Boolean = true;
+    
+    var GameText : Cog = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.CurrentHealth = this.MaxHealth;
+        this.GameText = this.Space.FindObjectByName("GameText");
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.CurrentHealth <= 0)
+        {
+            if (this.IsSpawned)
+            {
+                this.LevelSettings.SpawnEnemies.NumberSpawned -= 1;
+            }
+            
+            var total = this.XPWorth + this.LevelSettings.Experience.XP;
+            if (total <= this.LevelSettings.Experience.XPMax)
+            {
+                this.LevelSettings.Experience.XP += this.XPWorth;
+            }
+            else
+            {
+                this.LevelSettings.Experience.XP = this.LevelSettings.Experience.XPMax;
+                this.LevelSettings.Experience.IsOver = true;
+                
+                var extra = total - this.LevelSettings.Experience.XPMax;
+                this.LevelSettings.Experience.ExtraAmount = extra;
+            }
+            this.GameText.GameText.Print(this.DeathText);
+            var randNumGen = new Random();
+            var roll = randNumGen.DieRoll(100);
+            //Console.WriteLine("Roll: `roll`");
+            if (roll <= this.FoodDropChance)
+            {
+                this.Space.CreateAtPosition(this.FoodToSpawn, this.Owner.Transform.Translation);
+            }
+            
+            this.Owner.Destroy();
+        }
+    }
+}

@@ -1,0 +1,47 @@
+class Survival : ZilchComponent
+{
+    [Property]
+    var SurvivalTime : Real;
+    [Property]
+    var StarveDamage : Real;
+    [Property]
+    var StarveInterval : Real;
+    
+    var InitialTime : Real;
+    var Counter : Real;
+    
+    var Player : Cog = null;
+    var TextBox : Cog = null;
+    var TextRatio : Real;
+    var MaxRatio : Real;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Player = this.Space.FindObjectByName("Player");
+        this.TextBox = this.Space.FindObjectByName("SurvivalBar");
+        this.TextRatio = this.TextBox.Area.Size.X / this.SurvivalTime;
+        this.MaxRatio = this.TextBox.Area.Size.X;
+        this.InitialTime = this.SurvivalTime;
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.TextBox.Area.Size = Real2(this.TextRatio * this.SurvivalTime, this.TextBox.Area.Size.Y);
+        if (this.SurvivalTime >= 0)
+        {
+            this.SurvivalTime -= event.Dt;
+        }
+        
+        if (this.Counter > 0)
+        {
+            this.Counter -= event.Dt;
+        }
+        if (this.SurvivalTime <= 0 && this.Counter <= 0)
+        {
+            this.Player.PlayerHealth.CurrentHealth -= this.StarveDamage;
+            this.Counter = this.StarveInterval;
+        }
+    }
+}

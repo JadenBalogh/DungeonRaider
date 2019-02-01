@@ -1,0 +1,55 @@
+class MovementVision : ZilchComponent
+{
+    [Property]
+    var Speed : Real = 1.0;
+    [Property]
+    var DetectionRadius : Real = 1.0;
+    
+    var Player : Cog = null;
+    var DistAway : Real;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Player = this.Space.FindObjectByName("Player");
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Owner.RigidBody.Velocity = Real3(0.0, 0.0, 0.0);
+        
+        this.GetDist();
+        
+        if (this.DistAway <= this.DetectionRadius)
+        {
+            if (this.DistAway > this.Owner.AttackVision.DetectionRadius)
+            {
+                this.Move(event.Dt);
+            }
+        }
+    }
+    
+    function Move(dt : Real)
+    {
+        var playerPos = this.Player.Transform.Translation;
+        var myPos = this.Owner.Transform.Translation;
+        var direction = Math.Normalize(playerPos - myPos);
+        
+        var movement = Real3(0.0, 0.0, 0.0);
+        
+        movement += direction * this.Speed;
+        
+        this.Owner.Transform.Translation += movement * dt;
+    }
+    
+    function GetDist()
+    {
+        if (this.Player != null)
+        {
+            //Square root((x2-x1)^2 + (y2-y1)^2) = Resultant distance from the owner to the player
+            this.DistAway = Math.Sqrt((Math.Pow((this.Player.Transform.Translation.X - this.Owner.Transform.Translation.X), 2)) 
+            + (Math.Pow((this.Player.Transform.Translation.Y - this.Owner.Transform.Translation.Y), 2)));
+        }
+    }
+}
